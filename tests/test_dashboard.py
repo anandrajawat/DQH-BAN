@@ -15,6 +15,7 @@ def test_api_health():
     data = response.json()
     assert data["status"] == "HEALTHY"
     assert "cyber_model_loaded" in data
+    assert "hybrid_ensemble_loaded" in data
 
 def test_api_models():
     response = client.get("/models")
@@ -35,6 +36,8 @@ def test_predict_network():
     assert "attack_category" in data
     assert "decision" in data
     assert "recommended_action" in data
+    assert "model_type" in data
+    assert "ensemble_weights" in data
 
 def test_predict_biomedical():
     # 625 samples for ECG

@@ -1,12 +1,8 @@
 # Report 1: Comprehensive Dataset Analysis across Seven Benchmarks
 
-**Document Status**: Final Verified Research Artifact
-**Generated**: 2026-11-11 15:32:12
+**Experiment ID**: `DQH-BAN-EXP-2026-V2`
+**Document Status**: Final Verified Research Artifact (Synchronized with Saved Checkpoints)
+**Generated**: `2026-11-11 18:19:00`
 
-## Executive Summary
-Detailed inventory, schemas, distributions, and domain properties for CICIoMT2024, WUSTL-EHMS, WUSTL-HDRL, CIC-IoT-2023, ToN-IoT, BIDMC, and MIMIC PERform.
-
-## Key Findings & Empirical Data
-- **Methodology**: Strict adherence to reproducible, leak-proof protocols.
-- **Statistical Significance**: Validated over repeated independent trials with 95% confidence intervals.
-- **Hardware Constraints**: Fully verified on Apple Silicon with 16 GB RAM.
+## Executive Summary & Empirical Data
+Detailed inventory, schemas, distributions, and leakage properties for CICIoMT2024, WUSTL-EHMS-2020, WUSTL-HDRL-2024, CIC-IoT-2023, ToN-IoT, BIDMC, and MIMIC PERform III.

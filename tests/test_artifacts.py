@@ -17,6 +17,7 @@ def test_results_csvs_exist_and_populated():
         os.path.join(ARTIFACTS_DIR, "results", "baseline_results.csv"),
         os.path.join(ARTIFACTS_DIR, "results", "cyber_deep_learning_results.csv"),
         os.path.join(ARTIFACTS_DIR, "results", "quantum_model_results.csv"),
+        os.path.join(ARTIFACTS_DIR, "results", "hybrid_ensemble_results.csv"),
         os.path.join(ARTIFACTS_DIR, "results", "biomedical_results.csv"),
         os.path.join(ARTIFACTS_DIR, "results", "benchmark_results.csv")
     ]

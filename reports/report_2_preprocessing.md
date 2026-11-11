@@ -1,12 +1,8 @@
 # Report 2: Leakage Prevention and Feature Preprocessing Protocol
 
-**Document Status**: Final Verified Research Artifact
-**Generated**: 2026-11-11 15:32:12
+**Experiment ID**: `DQH-BAN-EXP-2026-V2`
+**Document Status**: Final Verified Research Artifact (Synchronized with Saved Checkpoints)
+**Generated**: `2026-11-11 18:19:00`
 
-## Executive Summary
-Implementation details of identifier exclusion (SrcMac, DstMac, IPs, timestamps), strict training-only scaling, and patient-independent segmentation.
-
-## Key Findings & Empirical Data
-- **Methodology**: Strict adherence to reproducible, leak-proof protocols.
-- **Statistical Significance**: Validated over repeated independent trials with 95% confidence intervals.
-- **Hardware Constraints**: Fully verified on Apple Silicon with 16 GB RAM.
+## Executive Summary & Empirical Data
+Implementation of identifier exclusion (SrcMac, DstMac, IPs, timestamps), float64 signed-log1p + StandardScaler normalization, and patient-independent segmentation.

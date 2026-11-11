@@ -31,7 +31,8 @@ def aggregate_benchmark_laboratory():
     csv_files = [
         os.path.join(RESULTS_DIR, "baseline_results.csv"),
         os.path.join(RESULTS_DIR, "cyber_deep_learning_results.csv"),
-        os.path.join(RESULTS_DIR, "quantum_model_results.csv")
+        os.path.join(RESULTS_DIR, "quantum_model_results.csv"),
+        os.path.join(RESULTS_DIR, "hybrid_ensemble_results.csv")
     ]
 
     dfs = []

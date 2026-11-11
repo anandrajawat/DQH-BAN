@@ -75,9 +75,17 @@ fabric_client, vault, orchestrator, simulator = get_system_instances()
 df_bench = load_csv_result("artifacts/results/benchmark_results.csv")
 df_dl = load_csv_result("artifacts/results/cyber_deep_learning_results.csv")
 df_q = load_csv_result("artifacts/results/quantum_model_results.csv")
+df_ens = load_csv_result("artifacts/results/hybrid_ensemble_results.csv")
 df_bio = load_csv_result("artifacts/results/biomedical_results.csv")
 df_noise = load_csv_result("artifacts/results/quantum_noise_sensitivity.csv")
 df_cross = load_csv_result("artifacts/results/cross_dataset_generalization.csv")
+
+if not df_ens.empty:
+    if df_bench.empty:
+        df_bench = df_ens.copy()
+    else:
+        df_bench = pd.concat([df_bench, df_ens], ignore_index=True)
+        df_bench = df_bench.drop_duplicates(subset=["dataset", "model"], keep="last").reset_index(drop=True)
 
 # Sidebar Navigation
 st.sidebar.markdown("### **DQH-BAN Navigation**")
@@ -148,7 +156,7 @@ if selected_page == "1. System Overview":
 # ==============================================================================
 elif selected_page == "2. Cybersecurity Intelligence":
     st.markdown('<div class="main-header">Stream A: Quantum-Assisted Cybersecurity Intelligence</div>', unsafe_allow_html=True)
-    st.markdown('<div class="sub-header">Multi-Scale 1D-CNN, TCN, BiGRU, Temporal Attention, VQC, and Validation Threshold Calibration</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sub-header">Multi-Scale 1D-CNN, TCN, BiGRU, Temporal Attention, VQC, Classical Stacking, and Hybrid Ensemble</div>', unsafe_allow_html=True)
 
     if not df_bench.empty:
         ds_options = list(df_bench["dataset"].unique())
@@ -158,7 +166,9 @@ elif selected_page == "2. Cybersecurity Intelligence":
         ds_sub = df_bench[df_bench["dataset"] == selected_ds]
         with col_sel2:
             mod_options = list(ds_sub["model"].unique())
-            default_idx = next((i for i, m in enumerate(mod_options) if "Quantum" in str(m)), 0)
+            default_idx = next((i for i, m in enumerate(mod_options) if "Hybrid_Quantum" in str(m)), 0)
+            if default_idx == 0:
+                default_idx = next((i for i, m in enumerate(mod_options) if "Quantum" in str(m)), 0)
             selected_mod = st.selectbox("Select Model Architecture:", mod_options, index=default_idx)
 
         row = ds_sub[ds_sub["model"] == selected_mod].iloc[0]
@@ -197,18 +207,17 @@ elif selected_page == "2. Cybersecurity Intelligence":
                 ckpt_data = torch.load(ckpt_full, map_location="cpu", weights_only=False)
                 cm = ckpt_data.get("test_metrics", {}).get("confusion_matrix", [[0, 0], [0, 0]])
             else:
-                # Reconstruct from saved counts if available
                 cm = [[int(row.get("tn_count", 0)), int(row.get("fp_count", 0))],
                       [int(row.get("fn_count", 0)), int(row.get("tp_count", 0))]]
             fig_cm = px.imshow(
                 cm, text_auto=True, x=["Benign", "Attack"], y=["Benign", "Attack"],
                 color_continuous_scale="Blues", labels=dict(x="Predicted Label", y="True Label")
             )
-            fig_cm.update_layout(height=340)
+            fig_cm.update_layout(height=320)
             st.plotly_chart(fig_cm, use_container_width=True)
 
         with c2:
-            st.markdown("#### **Validation Threshold Curve (Actual Model Validation Set)**")
+            st.markdown("#### **Validation Threshold Curve (Target FPR <= 1.0%)**")
             if th_json and "threshold_curve" in th_json:
                 tc = th_json["threshold_curve"]
                 df_th = pd.DataFrame({
@@ -216,20 +225,70 @@ elif selected_page == "2. Cybersecurity Intelligence":
                     "Validation FPR (%)": [v * 100 for v in tc["fpr"]],
                     "Validation FNR (%)": [v * 100 for v in tc["fnr"]]
                 })
-                opt_t = th_json.get("optimal_threshold", 0.5)
+                opt_t = float(row.get("threshold", th_json.get("optimal_threshold", 0.5)))
                 fig_th = px.line(df_th, x="Threshold", y=["Validation FPR (%)", "Validation FNR (%)"], markers=True)
                 fig_th.add_vline(x=opt_t, line_dash="dash", line_color="#805ad5", annotation_text=f"tau*={opt_t:.4f}")
-                fig_th.update_layout(height=340)
+                fig_th.update_layout(height=320)
                 st.plotly_chart(fig_th, use_container_width=True)
             else:
-                st.info("Run scripts/optimize_thresholds.py to populate validation threshold curves.")
+                st.info("Validation threshold curve populated in artifacts/thresholds/.")
+
+        # Ensemble Contributions and Calibration
+        c3, c4 = st.columns(2)
+        with c3:
+            st.markdown("#### **Stacking Meta-Classifier Weights (Model Contribution)**")
+            meta_w_str = str(row.get("meta_weights", ""))
+            if meta_w_str and meta_w_str != "nan":
+                try:
+                    import ast
+                    mw = ast.literal_eval(meta_w_str) if isinstance(meta_w_str, str) else meta_w_str
+                    if isinstance(mw, dict):
+                        df_mw = pd.DataFrame({"Base Model": list(mw.keys()), "Weight": list(mw.values())}).sort_values("Weight", ascending=True)
+                        fig_mw = px.bar(
+                            df_mw, x="Weight", y="Base Model", orientation="h",
+                            color="Weight", color_continuous_scale="Purples",
+                            title=f"Level-1 Meta-Logistic Regression Weights [{selected_mod}]"
+                        )
+                        fig_mw.update_layout(height=300, showlegend=False)
+                        st.plotly_chart(fig_mw, use_container_width=True)
+                except Exception as e:
+                    st.caption(f"Weights format: {meta_w_str}")
+            else:
+                st.caption("Standalone base model (100% individual decision).")
+
+        with c4:
+            st.markdown("#### **Probability Calibration (Reliability Diagram)**")
+            if th_json and "reliability_bins" in th_json:
+                rb = th_json["reliability_bins"]
+                if "bin_confs" in rb and "bin_accs" in rb:
+                    fig_cal = go.Figure()
+                    fig_cal.add_trace(go.Scatter(
+                        x=rb["bin_confs"], y=rb["bin_accs"], mode="lines+markers",
+                        name="Observed Frequency", marker=dict(color="#3182ce", size=7)
+                    ))
+                    fig_cal.add_trace(go.Scatter(
+                        x=[0, 1], y=[0, 1], mode="lines", name="Perfect Calibration",
+                        line=dict(dash="dash", color="gray")
+                    ))
+                    ece_v = th_json.get("expected_calibration_error", 0.0)
+                    brier_v = th_json.get("brier_score", 0.0)
+                    fig_cal.update_layout(
+                        title=f"ECE: {ece_v:.4f} | Brier: {brier_v:.4f}",
+                        xaxis_title="Predicted Probability", yaxis_title="True Empirical Proportion",
+                        height=300
+                    )
+                    st.plotly_chart(fig_cal, use_container_width=True)
+
+        st.markdown(f"#### **All Models Performance Comparison on {selected_ds}**")
+        cols_tbl = [c for c in ["model", "accuracy", "precision", "recall", "macro_f1", "fpr", "fnr", "roc_auc", "mean_latency_ms", "threshold"] if c in ds_sub.columns]
+        st.dataframe(ds_sub[cols_tbl].sort_values("macro_f1", ascending=False).reset_index(drop=True), use_container_width=True)
 
 # ==============================================================================
 # PAGE 3: QUANTUM INTELLIGENCE
 # ==============================================================================
 elif selected_page == "3. Quantum Intelligence":
     st.markdown('<div class="main-header">Variational Quantum Circuit (VQC) & Ablation Laboratory</div>', unsafe_allow_html=True)
-    st.markdown('<div class="sub-header">PennyLane Data Re-Uploading VQC, Entanglement Topology, Qubit Scaling, and Noise Sensitivity</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sub-header">PennyLane Data Re-Uploading VQC, Entanglement Topology, Qubit Scaling, and Quantum Stacking Ablation</div>', unsafe_allow_html=True)
 
     col1, col2, col3, col4 = st.columns(4)
     with col1:
@@ -246,9 +305,29 @@ elif selected_page == "3. Quantum Intelligence":
     if os.path.exists(q_fig):
         st.image(q_fig, caption="Figure 15: Variational Quantum Circuit Architecture", use_container_width=True)
 
+    st.markdown("#### **Quantum Component Value-Add: Stacking Ensemble Ablation Study**")
+    if not df_bench.empty:
+        ablation_models = [
+            "DQH_BAN_Hybrid_Quantum_Ensemble",
+            "DQH_BAN_Hybrid_NoQuantum_Ensemble",
+            "Classical_Stacking_Ensemble",
+            "classical_matched"
+        ]
+        df_ab_ens = df_bench[df_bench["model"].isin(ablation_models) | df_bench["model"].str.contains("Quantum_4q", case=False, na=False)]
+        if not df_ab_ens.empty:
+            cols_ab = [c for c in ["dataset", "model", "accuracy", "precision", "recall", "macro_f1", "fpr", "fnr", "mean_latency_ms"] if c in df_ab_ens.columns]
+            st.dataframe(df_ab_ens[cols_ab], use_container_width=True)
+
+            fig_ab = px.bar(
+                df_ab_ens, x="dataset", y="macro_f1", color="model", barmode="group",
+                title="Macro-F1 Ablation: Quantum Hybrid vs No-Quantum Hybrid vs Classical Ensemble"
+            )
+            fig_ab.update_layout(height=360, yaxis_range=[0.80, 1.01])
+            st.plotly_chart(fig_ab, use_container_width=True)
+
     c_q1, c_q2 = st.columns(2)
     with c_q1:
-        st.markdown("#### **Controlled Architecture & Quantum Ablation Results**")
+        st.markdown("#### **Controlled Architecture Deep Learning Ablation (CICIoMT2024)**")
         if not df_dl.empty or not df_q.empty:
             comb = pd.concat([
                 df_dl[df_dl["dataset"] == "CICIoMT2024"] if not df_dl.empty else pd.DataFrame(),

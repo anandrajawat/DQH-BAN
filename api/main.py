@@ -74,6 +74,7 @@ def health_check():
         "status": "HEALTHY",
         "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "cyber_model_loaded": simulator.cyber_model is not None,
+        "hybrid_ensemble_loaded": simulator.hybrid_ensemble is not None,
         "cyber_model_version": simulator.cyber_model_version,
         "cyber_threshold": simulator.cyber_threshold,
         "biomedical_model_loaded": simulator.biomedical_model is not None,
@@ -144,7 +145,21 @@ def predict_network(payload: NetworkFlowInput):
     threat_prob = 0.05
     pred_attack = "Benign"
     thresh = simulator.cyber_threshold
-    if simulator.cyber_model is not None:
+    member_weights = {}
+
+    if simulator.hybrid_ensemble is not None:
+        threat_prob = float(simulator.hybrid_ensemble.predict_proba(x_2d)[0])
+        pred_classes, _ = simulator.hybrid_ensemble.predict_multiclass(x_2d)
+        mc_idx = int(pred_classes[0]) if hasattr(pred_classes, "__len__") else int(pred_classes)
+        member_weights = simulator.hybrid_ensemble.get_meta_weights()
+        if threat_prob >= thresh:
+            if simulator.cyber_classes and 0 <= mc_idx < len(simulator.cyber_classes) and simulator.cyber_classes[mc_idx] != "Benign":
+                pred_attack = str(simulator.cyber_classes[mc_idx])
+            else:
+                pred_attack = "Attack"
+        else:
+            pred_attack = "Benign"
+    elif simulator.cyber_model is not None:
         with torch.no_grad():
             x_t = torch.tensor(x_2d, dtype=torch.float32)
             b_log, m_log, _ = simulator.cyber_model(x_t)
@@ -171,9 +186,11 @@ def predict_network(payload: NetworkFlowInput):
     return {
         "device_id": payload.device_id,
         "model_version": simulator.cyber_model_version,
+        "model_type": "Hybrid_Stacking_Ensemble" if simulator.hybrid_ensemble is not None else "Neural_VQC_Standalone",
         "threshold_used": round(thresh, 4),
         "threat_probability": round(threat_prob, 4),
         "attack_category": pred_attack,
+        "ensemble_weights": member_weights,
         "decision": orch_res["decision"],
         "alert_level": orch_res["alert_level"],
         "recommended_action": orch_res["recommended_action"],

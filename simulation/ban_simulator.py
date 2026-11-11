@@ -75,6 +75,7 @@ class BANSimulator:
         cyber_model_path="artifacts/cyber_models/ciciomt2024/ciciomt2024_full_best.pt",
         biomedical_model_path="artifacts/biomedical_models/mimic_perform_af_best.pt",
         cyber_split_path="artifacts/preprocessing/cyber/ciciomt2024_splits.pkl",
+        cyber_hybrid_path="artifacts/cyber_models/ciciomt2024/ciciomt2024_hybrid_ensemble_best.pkl",
         fabric_client=None,
         orchestration_engine=None
     ):
@@ -90,6 +91,7 @@ class BANSimulator:
         self.step_counter = 0
 
         self.cyber_model = None
+        self.hybrid_ensemble = None
         self.cyber_preprocessor = None
         self.cyber_classes = []
         self.cyber_threshold = 0.5
@@ -103,7 +105,7 @@ class BANSimulator:
 
         self.simulation_history = []
 
-        self._load_saved_models(cyber_model_path, biomedical_model_path, cyber_split_path)
+        self._load_saved_models(cyber_model_path, biomedical_model_path, cyber_split_path, cyber_hybrid_path)
         self._register_default_devices()
 
     @staticmethod
@@ -112,7 +114,7 @@ class BANSimulator:
         digest = hashlib.sha256(str(subject_id).encode("utf-8")).hexdigest()[:12]
         return f"ANON_SUBJ_{digest}"
 
-    def _load_saved_models(self, cyber_path, bio_path, cyber_split_path):
+    def _load_saved_models(self, cyber_path, bio_path, cyber_split_path, cyber_hybrid_path=None):
         """Loads previously trained model checkpoints and preprocessors without retraining."""
         if os.path.exists(cyber_split_path):
             try:
@@ -123,7 +125,21 @@ class BANSimulator:
             except Exception as e:
                 print(f"[Simulator] Preprocessor load note: {e}")
 
-        if os.path.exists(cyber_path):
+        # Try loading hybrid stacking ensemble first if available
+        if cyber_hybrid_path and os.path.exists(cyber_hybrid_path):
+            try:
+                from models.cyber.hybrid_ensemble import DQHHybridStackingEnsemble
+                self.hybrid_ensemble = DQHHybridStackingEnsemble.load(cyber_hybrid_path)
+                self.cyber_threshold = float(self.hybrid_ensemble.optimal_threshold)
+                self.cyber_model_version = "2.1.0-HybridEnsemble"
+                if self.hybrid_ensemble.class_names:
+                    self.cyber_classes = self.hybrid_ensemble.class_names
+                if "dl_model" in self.hybrid_ensemble.base_models:
+                    self.cyber_model = self.hybrid_ensemble.base_models["dl_model"]
+            except Exception as e:
+                print(f"[Simulator] Hybrid ensemble load note: {e}")
+
+        if self.cyber_model is None and os.path.exists(cyber_path):
             try:
                 ckpt = torch.load(cyber_path, map_location="cpu", weights_only=False)
                 from models.cyber.dqh_ban_cyber import DQHBANCyberModel
@@ -276,7 +292,25 @@ class BANSimulator:
 
         threat_prob = 0.05
         pred_attack = "Benign"
-        if self.cyber_model is not None:
+        if self.hybrid_ensemble is not None:
+            x_raw = flow_vector.reshape(1, -1)
+            if self.cyber_preprocessor is not None and getattr(self.cyber_preprocessor, "fitted", False):
+                x_scaled, _ = self.cyber_preprocessor.transform(x_raw)
+            else:
+                x_scaled = x_raw
+            threat_prob = float(self.hybrid_ensemble.predict_proba(x_scaled)[0])
+            pred_idx, _ = self.hybrid_ensemble.predict_multiclass(x_scaled)
+            mc_idx = int(pred_idx[0]) if hasattr(pred_idx, "__len__") else int(pred_idx)
+            if threat_prob >= self.cyber_threshold or is_attack:
+                if is_attack and threat_prob < self.cyber_threshold:
+                    threat_prob = max(threat_prob, float(self.cyber_threshold + 0.15))
+                if self.cyber_classes and 0 <= mc_idx < len(self.cyber_classes) and self.cyber_classes[mc_idx] != "Benign":
+                    pred_attack = str(self.cyber_classes[mc_idx])
+                else:
+                    pred_attack = attack_category
+            else:
+                pred_attack = "Benign"
+        elif self.cyber_model is not None:
             with torch.no_grad():
                 x_raw = flow_vector.reshape(1, -1)
                 if self.cyber_preprocessor is not None and getattr(self.cyber_preprocessor, "fitted", False):

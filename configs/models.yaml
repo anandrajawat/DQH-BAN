@@ -22,6 +22,45 @@ cyber_model:
   latent_dim: 64
   quantum_projection_dim: 4 # projected into quantum qubits
 
+hybrid_ensemble:
+  meta_classifier:
+    type: "logistic_regression"
+    penalty: "l2"
+    solver: "lbfgs"
+    max_iter: 1000
+    c_regularization: 1.0
+    tune_optuna: true
+  stacking:
+    n_splits: 5
+    stratified: true
+    leakage_guard: "strict_oof"
+  base_models:
+    deep_learning:
+      include: true
+      modes: ["full", "classical_matched"]
+      epochs_per_fold: 3
+    xgboost:
+      n_estimators: 250
+      max_depth: 7
+      learning_rate: 0.06
+      subsample: 0.85
+      colsample_bytree: 0.85
+    lightgbm:
+      n_estimators: 250
+      max_depth: 7
+      num_leaves: 31
+      learning_rate: 0.06
+      subsample: 0.85
+      colsample_bytree: 0.85
+    random_forest:
+      n_estimators: 150
+      max_depth: 14
+      class_weight: "balanced_subsample"
+    logistic_regression:
+      max_iter: 500
+      class_weight: "balanced"
+      scaler: "standard"
+
 biomedical_model:
   ecg_branch:
     cnn_filters: [16, 32, 64]

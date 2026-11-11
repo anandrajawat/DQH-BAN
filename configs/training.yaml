@@ -20,3 +20,14 @@ training:
     n_trials: 10
     timeout_seconds: 600
 
+  stacking:
+    n_splits: 5
+    stratified: true
+    oof_validation: true
+    refit_on_full_train: true
+
+  calibration:
+    methods: ["uncalibrated", "platt_scaling", "isotonic_regression"]
+    target_max_fpr: 0.01
+    evaluation_split: "validation_only"
+

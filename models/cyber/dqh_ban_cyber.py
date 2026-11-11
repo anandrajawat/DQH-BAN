@@ -156,7 +156,7 @@ class DQHBANCyberModel(nn.Module):
             x_flat = x_flat[:, :self.in_features]
         return x_flat
 
-    def forward(self, x):
+    def forward(self, x, return_latent=False):
         x_flat = self._align_flat_features(x)
         coord_latent = self.coord_encoder(x_flat)
 
@@ -175,6 +175,8 @@ class DQHBANCyberModel(nn.Module):
             pooled = self.cnn_proj(cnn_out.mean(dim=-1))
             latent = self.latent_proj(pooled) + 0.65 * coord_latent
             bin_l, mul_l = self.heads(latent)
+            if return_latent:
+                return bin_l, mul_l, None, latent
             return bin_l, mul_l, None
 
         tcn_out = self.tcn(cnn_out)
@@ -183,6 +185,8 @@ class DQHBANCyberModel(nn.Module):
             pooled = tcn_out.mean(dim=-1)
             latent = self.latent_proj(pooled) + 0.8 * coord_latent
             bin_l, mul_l = self.heads(latent)
+            if return_latent:
+                return bin_l, mul_l, None, latent
             return bin_l, mul_l, None
 
         if self.mode == "cnn_tcn_bigru":
@@ -207,4 +211,11 @@ class DQHBANCyberModel(nn.Module):
             fused_feat = classical_latent
 
         binary_logit, multi_logits = self.heads(fused_feat)
+        if return_latent:
+            return binary_logit, multi_logits, attn_weights, fused_feat
         return binary_logit, multi_logits, attn_weights
+
+    def extract_latent(self, x):
+        """Extracts the learned latent embedding vector (shape: batch_size x latent_dim)."""
+        _, _, _, latent = self.forward(x, return_latent=True)
+        return latent

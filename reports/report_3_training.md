@@ -1,12 +1,8 @@
-# Report 3: Offline Training, Cost-Sensitive Focal Loss, and Optimization
+# Report 3: Offline Training, Class-Balanced Cost-Sensitive Focal Loss, and Threshold Calibration
 
-**Document Status**: Final Verified Research Artifact
-**Generated**: 2026-11-11 15:32:12
+**Experiment ID**: `DQH-BAN-EXP-2026-V2`
+**Document Status**: Final Verified Research Artifact (Synchronized with Saved Checkpoints)
+**Generated**: `2026-11-11 18:19:00`
 
-## Executive Summary
-Mathematical formulation of L = lambda_1 L_focal + lambda_2 L_FN + lambda_3 L_reg, optimizer configurations, learning rates, and early stopping checkpoints.
-
-## Key Findings & Empirical Data
-- **Methodology**: Strict adherence to reproducible, leak-proof protocols.
-- **Statistical Significance**: Validated over repeated independent trials with 95% confidence intervals.
-- **Hardware Constraints**: Fully verified on Apple Silicon with 16 GB RAM.
+## Executive Summary & Empirical Data
+Mathematical formulation of class-balanced focal loss, validation-only threshold optimization, Platt scaling vs Isotonic regression, and early stopping checkpoints.
