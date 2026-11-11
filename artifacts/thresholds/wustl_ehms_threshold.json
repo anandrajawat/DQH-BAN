@@ -1,0 +1,52 @@
+{
+  "dataset": "WUSTL-EHMS-2020",
+  "dataset_key": "wustl_ehms",
+  "optimal_threshold": 0.4754,
+  "validation_fpr": 0.0093,
+  "validation_fnr": 0.0,
+  "expected_calibration_error": 0.2305,
+  "optimization_criterion": "Min FNR with FPR <= 1.0%",
+  "baseline_threshold_05": {
+    "threshold": 0.5,
+    "validation_fpr": 0.0051,
+    "validation_fnr": 0.0033
+  },
+  "reliability_bins": {
+    "bin_accs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.010752688172043012,
+      0.5238095238095238,
+      0.9791666666666666,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "bin_confs": [
+      0.08248367569117995,
+      0.15784165884857307,
+      0.24486984118725505,
+      0.3405445744346273,
+      0.4372791806027692,
+      0.5489558549877022,
+      0.6578574933235936,
+      0.7532842327267235,
+      0.8393521620223396,
+      0.923693375613365
+    ],
+    "bin_counts": [
+      47,
+      754,
+      884,
+      353,
+      93,
+      21,
+      48,
+      115,
+      125,
+      8
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "dataset": "CIC-IoT-2023",
+  "dataset_key": "cic_iot2023",
+  "optimal_threshold": 0.4811,
+  "validation_fpr": 0.0085,
+  "validation_fnr": 0.0045,
+  "expected_calibration_error": 0.2328,
+  "optimization_criterion": "Min FNR with FPR <= 1.0%",
+  "baseline_threshold_05": {
+    "threshold": 0.5,
+    "validation_fpr": 0.0085,
+    "validation_fnr": 0.0068
+  },
+  "reliability_bins": {
+    "bin_accs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.8974358974358975,
+      0.9947368421052631,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "bin_confs": [
+      0.08998671669335766,
+      0.15669485835988028,
+      0.25032085305547747,
+      0.3481079057482606,
+      0.46071196674926157,
+      0.5628413220223558,
+      0.6603211010518956,
+      0.7549596663150914,
+      0.8412145315995898,
+      0.9155135896045747
+    ],
+    "bin_counts": [
+      3,
+      37,
+      50,
+      22,
+      39,
+      190,
+      844,
+      2034,
+      1884,
+      147
+    ]
+  }
+}

@@ -1,0 +1,644 @@
+{
+  "channel": "bansecuritychannel",
+  "chaincode": "ban_security_contract",
+  "blocks": [
+    {
+      "block_number": 0,
+      "timestamp": "2026-11-11T09:37:28Z",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "block_hash": "3783e5cd2fac41c8ac0e963f6cf575022cd14c863870a6ba928e279fef2fc069",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Holter_Monitor_ECG",
+        "device_type": "ECG_Monitor",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T09:37:28Z"
+      }
+    },
+    {
+      "block_number": 1,
+      "timestamp": "2026-11-11T09:37:28Z",
+      "previous_hash": "3783e5cd2fac41c8ac0e963f6cf575022cd14c863870a6ba928e279fef2fc069",
+      "block_hash": "9cf79cf60c4708767e81a64a6fd6b5885754361e1cd8de67e17fd7cf05498ae6",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Smartwatch_Wearable",
+        "device_type": "Multisensor_Wristband",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T09:37:28Z"
+      }
+    },
+    {
+      "block_number": 2,
+      "timestamp": "2026-11-11T09:37:28Z",
+      "previous_hash": "9cf79cf60c4708767e81a64a6fd6b5885754361e1cd8de67e17fd7cf05498ae6",
+      "block_hash": "3791fed844be09af3469dfb8795a03ad5a5921dfd0da54feac89dd7770f10ceb",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Chest_Patch_Respiration",
+        "device_type": "Respiratory_Sensor",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T09:37:28Z"
+      }
+    },
+    {
+      "block_number": 3,
+      "timestamp": "2026-11-11T09:37:28Z",
+      "previous_hash": "3791fed844be09af3469dfb8795a03ad5a5921dfd0da54feac89dd7770f10ceb",
+      "block_hash": "dc228d15c741f8b461b83638558874a7ca1fe0d9955975171ccd0f8093bde6d5",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Continuous_BP_Cuff",
+        "device_type": "Blood_Pressure_Monitor",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T09:37:28Z"
+      }
+    },
+    {
+      "block_number": 4,
+      "timestamp": "2026-11-11T09:37:28Z",
+      "previous_hash": "dc228d15c741f8b461b83638558874a7ca1fe0d9955975171ccd0f8093bde6d5",
+      "block_hash": "ab1c7ba7d0678d582c1253e68baf2aad74c33b7bf2cb63754bdb6b98e6e25ff0",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Implantable_Pacemaker",
+        "device_type": "Cardiac_Implant",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T09:37:28Z"
+      }
+    },
+    {
+      "block_number": 5,
+      "timestamp": "2026-11-11T09:37:28Z",
+      "previous_hash": "ab1c7ba7d0678d582c1253e68baf2aad74c33b7bf2cb63754bdb6b98e6e25ff0",
+      "block_hash": "d6ef890123b2cae44fa0632118b6fd8a24cd6d38f20bad17d3d452aab59319e8",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Test_Pacemaker",
+        "device_type": "Cardiac_Implant",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T09:37:28Z"
+      }
+    },
+    {
+      "block_number": 6,
+      "timestamp": "2026-11-11T09:54:16Z",
+      "previous_hash": "d6ef890123b2cae44fa0632118b6fd8a24cd6d38f20bad17d3d452aab59319e8",
+      "block_hash": "88431c8a60b99fbba2037db6d90b8abf448d1e4cd912b7b068d06d1ba731eacc",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794390856468",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:Attack",
+        "threat_score": 0.9807856678962708,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T09:54:16Z"
+      }
+    },
+    {
+      "block_number": 7,
+      "timestamp": "2026-11-11T09:54:16Z",
+      "previous_hash": "88431c8a60b99fbba2037db6d90b8abf448d1e4cd912b7b068d06d1ba731eacc",
+      "block_hash": "044ecb99d745fd2e1a01a01f825d8a76a9531fa0147ad33693151e1941c4f4c5",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794390856486",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+        "threat_score": 0.9807856678962708,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T09:54:16Z"
+      }
+    },
+    {
+      "block_number": 8,
+      "timestamp": "2026-11-11T09:54:16Z",
+      "previous_hash": "044ecb99d745fd2e1a01a01f825d8a76a9531fa0147ad33693151e1941c4f4c5",
+      "block_hash": "6243c85439c123e4489e86d9473772941d44e10226eae2566eb243b1bfa061be",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794390856492",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+        "threat_score": 0.9995260238647461,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T09:54:16Z"
+      }
+    },
+    {
+      "block_number": 9,
+      "timestamp": "2026-11-11T09:54:16Z",
+      "previous_hash": "6243c85439c123e4489e86d9473772941d44e10226eae2566eb243b1bfa061be",
+      "block_hash": "3e2fbf255d6cb05435baafb7cb5748f1eddd15cf2bf8d69d85065a5896e2e697",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_01",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T09:54:16Z"
+      }
+    },
+    {
+      "block_number": 10,
+      "timestamp": "2026-11-11T10:02:35Z",
+      "previous_hash": "3e2fbf255d6cb05435baafb7cb5748f1eddd15cf2bf8d69d85065a5896e2e697",
+      "block_hash": "1a46083c57038428f71bcb682bd6e57782f44808fee33933f54813ead387692c",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Audit_Test_Dev_1794391355102",
+        "device_type": "Sensor",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T10:02:35Z"
+      }
+    },
+    {
+      "block_number": 11,
+      "timestamp": "2026-11-11T10:02:47Z",
+      "previous_hash": "1a46083c57038428f71bcb682bd6e57782f44808fee33933f54813ead387692c",
+      "block_hash": "11236ac97eeea8ec38d94e30d30b8a6fcf31336435b642a46d1e7e777d3b174c",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794391367450",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:Attack",
+        "threat_score": 0.9807856678962708,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T10:02:47Z"
+      }
+    },
+    {
+      "block_number": 12,
+      "timestamp": "2026-11-11T10:02:47Z",
+      "previous_hash": "11236ac97eeea8ec38d94e30d30b8a6fcf31336435b642a46d1e7e777d3b174c",
+      "block_hash": "259936e56fd557ee126441748aa3508dc50fd9ea3012d726b40bcd7f996d5e88",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794391367467",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+        "threat_score": 0.9807856678962708,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T10:02:47Z"
+      }
+    },
+    {
+      "block_number": 13,
+      "timestamp": "2026-11-11T10:02:47Z",
+      "previous_hash": "259936e56fd557ee126441748aa3508dc50fd9ea3012d726b40bcd7f996d5e88",
+      "block_hash": "9cf9319a95acdad458b3d4acc5f3c29437ef5b564143061ff2ff28a84fc297af",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794391367472",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+        "threat_score": 0.9995260238647461,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T10:02:47Z"
+      }
+    },
+    {
+      "block_number": 14,
+      "timestamp": "2026-11-11T10:03:07Z",
+      "previous_hash": "9cf9319a95acdad458b3d4acc5f3c29437ef5b564143061ff2ff28a84fc297af",
+      "block_hash": "2d93c717365dc3fdbcf191ff2c367e7eac84573e7920545177f91aad8fe01972",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794391387661",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:Attack",
+        "threat_score": 0.9807856678962708,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T10:03:07Z"
+      }
+    },
+    {
+      "block_number": 15,
+      "timestamp": "2026-11-11T10:03:07Z",
+      "previous_hash": "2d93c717365dc3fdbcf191ff2c367e7eac84573e7920545177f91aad8fe01972",
+      "block_hash": "69618503b8918667c30f5c101bcbc59a1aa9630d579848c960867f26d9eb1aff",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794391387676",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+        "threat_score": 0.9807856678962708,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T10:03:07Z"
+      }
+    },
+    {
+      "block_number": 16,
+      "timestamp": "2026-11-11T10:03:07Z",
+      "previous_hash": "69618503b8918667c30f5c101bcbc59a1aa9630d579848c960867f26d9eb1aff",
+      "block_hash": "673624dbf0d8931d3b898cc4956b091ccbe19f740f4ae56d522f3ed506ace2ea",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794391387681",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+        "threat_score": 0.9995260238647461,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T10:03:07Z"
+      }
+    },
+    {
+      "block_number": 17,
+      "timestamp": "2026-11-11T10:03:07Z",
+      "previous_hash": "673624dbf0d8931d3b898cc4956b091ccbe19f740f4ae56d522f3ed506ace2ea",
+      "block_hash": "1e5020a18b1303285ed9e519c65b361ffce7d5d57050da95c54debfbcc280b51",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794391387685",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T10:03:07Z"
+      }
+    },
+    {
+      "block_number": 18,
+      "timestamp": "2026-11-11T10:21:58Z",
+      "previous_hash": "1e5020a18b1303285ed9e519c65b361ffce7d5d57050da95c54debfbcc280b51",
+      "block_hash": "a9378f4dd589ee958b5ba3505b8fba924b12a6133f90e36c53505c2ca2722e3a",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794392518139",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:Attack",
+        "threat_score": 0.9807856678962708,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T10:21:58Z"
+      }
+    },
+    {
+      "block_number": 19,
+      "timestamp": "2026-11-11T10:21:58Z",
+      "previous_hash": "a9378f4dd589ee958b5ba3505b8fba924b12a6133f90e36c53505c2ca2722e3a",
+      "block_hash": "0778599ea4e5e0ff3cceac2f94adbf2641b2f4e7eae814c6674c17cd09bd1005",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794392518151",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+        "threat_score": 0.9807856678962708,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T10:21:58Z"
+      }
+    },
+    {
+      "block_number": 20,
+      "timestamp": "2026-11-11T10:21:58Z",
+      "previous_hash": "0778599ea4e5e0ff3cceac2f94adbf2641b2f4e7eae814c6674c17cd09bd1005",
+      "block_hash": "f6273e641fde5aec0cf15ac9fdc66b0747dd58ec6b04cb8dc7806c6e842ab6c3",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794392518155",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+        "threat_score": 0.9995260238647461,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T10:21:58Z"
+      }
+    },
+    {
+      "block_number": 21,
+      "timestamp": "2026-11-11T10:21:58Z",
+      "previous_hash": "f6273e641fde5aec0cf15ac9fdc66b0747dd58ec6b04cb8dc7806c6e842ab6c3",
+      "block_hash": "10ec47a967b1f45e70b849992fad72b371c25021c44ec8852935c13349d52b30",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794392518159",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T10:21:58Z"
+      }
+    }
+  ],
+  "devices": {
+    "Holter_Monitor_ECG": {
+      "device_id": "Holter_Monitor_ECG",
+      "device_type": "ECG_Monitor",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T09:37:28Z"
+    },
+    "Smartwatch_Wearable": {
+      "device_id": "Smartwatch_Wearable",
+      "device_type": "Multisensor_Wristband",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T09:37:28Z"
+    },
+    "Chest_Patch_Respiration": {
+      "device_id": "Chest_Patch_Respiration",
+      "device_type": "Respiratory_Sensor",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T09:37:28Z"
+    },
+    "Continuous_BP_Cuff": {
+      "device_id": "Continuous_BP_Cuff",
+      "device_type": "Blood_Pressure_Monitor",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T09:37:28Z"
+    },
+    "Implantable_Pacemaker": {
+      "device_id": "Implantable_Pacemaker",
+      "device_type": "Cardiac_Implant",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T09:37:28Z"
+    },
+    "Test_Pacemaker": {
+      "device_id": "Test_Pacemaker",
+      "device_type": "Cardiac_Implant",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T09:37:28Z"
+    },
+    "API_TEST_DEV_01": {
+      "device_id": "API_TEST_DEV_01",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T09:54:16Z"
+    },
+    "Audit_Test_Dev_1794391355102": {
+      "device_id": "Audit_Test_Dev_1794391355102",
+      "device_type": "Sensor",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T10:02:35Z"
+    },
+    "API_TEST_DEV_1794391387685": {
+      "device_id": "API_TEST_DEV_1794391387685",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T10:03:07Z"
+    },
+    "API_TEST_DEV_1794392518159": {
+      "device_id": "API_TEST_DEV_1794392518159",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T10:21:58Z"
+    }
+  },
+  "data_hashes": {},
+  "security_events": [
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794390856468",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:Attack",
+      "threat_score": 0.9807856678962708,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T09:54:16Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794390856486",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+      "threat_score": 0.9807856678962708,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T09:54:16Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794390856492",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+      "threat_score": 0.9995260238647461,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T09:54:16Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794391367450",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:Attack",
+      "threat_score": 0.9807856678962708,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T10:02:47Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794391367467",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+      "threat_score": 0.9807856678962708,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T10:02:47Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794391367472",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+      "threat_score": 0.9995260238647461,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T10:02:47Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794391387661",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:Attack",
+      "threat_score": 0.9807856678962708,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T10:03:07Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794391387676",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+      "threat_score": 0.9807856678962708,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T10:03:07Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794391387681",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+      "threat_score": 0.9995260238647461,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T10:03:07Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794392518139",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:Attack",
+      "threat_score": 0.9807856678962708,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T10:21:58Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794392518151",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+      "threat_score": 0.9807856678962708,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T10:21:58Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794392518155",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Attack",
+      "threat_score": 0.9995260238647461,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T10:21:58Z"
+    }
+  ],
+  "access_control": {}
+}

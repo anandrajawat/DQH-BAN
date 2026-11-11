@@ -1,0 +1,8 @@
+dataset_name,role,format,records_or_subjects,features_or_channels,leakage_risk_columns_count
+WUSTL-EHMS-2020,Healthcare-specific network & biometric benchmark,CSV,16318,45,5
+WUSTL-HDRL-2024,Medical 5G & healthcare network security benchmark,CSV,145123,77,9
+CICIoMT2024,Primary IoMT cybersecurity benchmark,Multi-CSV (Train/Test partitions),8775013,45,0
+CIC-IoT-2023,Large-scale IoT generalization benchmark,Partitioned CSVs,0,47,0
+ToN-IoT (NF-ToN-IoT-v2),External cybersecurity validation benchmark,NetFlow v2 CSV,16940496,45,4
+BIDMC PPG and Respiration Dataset,Physiological signal intelligence benchmark,"PhysioNet WFDB format (.hea, .dat, .breath)",53,0,1
+MIMIC PERform III AF and Non-AF Dataset,ECG/PPG and cardiac rhythm analysis benchmark,"CSV waveform streams (Time, PPG, ECG, resp)",35,4,1

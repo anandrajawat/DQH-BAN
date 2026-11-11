@@ -1,0 +1,52 @@
+{
+  "dataset": "ToN-IoT",
+  "dataset_key": "ton_iot",
+  "optimal_threshold": 0.5401,
+  "validation_fpr": 0.0029,
+  "validation_fnr": 0.0,
+  "expected_calibration_error": 0.2338,
+  "optimization_criterion": "Min FNR with FPR <= 1.0%",
+  "baseline_threshold_05": {
+    "threshold": 0.5,
+    "validation_fpr": 0.0062,
+    "validation_fnr": 0.0
+  },
+  "reliability_bins": {
+    "bin_accs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.09090909090909091,
+      0.8947368421052632,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "bin_confs": [
+      0.08473395451104877,
+      0.15802581370135585,
+      0.24546797242157042,
+      0.34010634807260404,
+      0.4365096088573203,
+      0.5414905529446223,
+      0.6596663959373107,
+      0.7571389140035975,
+      0.8421574915085428,
+      0.9250804761552267
+    ],
+    "bin_counts": [
+      150,
+      1838,
+      2110,
+      846,
+      204,
+      33,
+      19,
+      28,
+      21,
+      1
+    ]
+  }
+}

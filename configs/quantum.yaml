@@ -1,0 +1,17 @@
+# configs/quantum.yaml
+quantum_circuit:
+  default_qubits: 4
+  benchmark_qubits: [4, 6, 8]
+  variational_layers: 2
+  benchmark_depths: [1, 2, 3]
+  encoding: "angle_embedding" # RY rotations
+  ansatz: "hardware_efficient"
+  entanglement: "ring" # cyclic CNOTs
+  measurement: "pauli_z"
+  device_simulator: "default.qubit"
+  diff_method: "backprop"
+  shots: null # exact expectation values
+  noisy_simulation:
+    depolarizing_error: 0.01
+    bit_flip_error: 0.01
+

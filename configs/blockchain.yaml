@@ -1,0 +1,21 @@
+# configs/blockchain.yaml
+blockchain:
+  network_name: "DQHBAN-Fabric"
+  channel_name: "bansecuritychannel"
+  chaincode_name: "ban_security_contract"
+  msp_id: "Org1MSP"
+  ca_endpoint: "localhost:7054"
+  orderer_endpoint: "localhost:7050"
+  peer_endpoint: "localhost:7051"
+  encryption:
+    algorithm: "AES-256-GCM"
+    key_size_bytes: 32
+    iv_size_bytes: 12
+    tag_size_bytes: 16
+    hash_algorithm: "SHA-256"
+  off_chain_storage:
+    path: "artifacts/blockchain/off_chain_vault"
+  simulation_mode:
+    enabled_fallback: true
+    ledger_state_path: "artifacts/blockchain/ledger_state.json"
+

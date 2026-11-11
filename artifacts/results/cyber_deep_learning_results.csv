@@ -1,0 +1,7 @@
+dataset,model,accuracy,precision,recall,macro_f1,weighted_f1,roc_auc,pr_auc,fpr,fnr,fp_count,fn_count,multiclass_accuracy,multiclass_macro_f1,threshold,train_time_sec,mean_latency_ms,p95_latency_ms,checkpoint_path
+CICIoMT2024,1d_cnn,0.979,0.9883,0.9896,0.8929,0.9789,0.9886,0.9994,0.2122,0.0104,111,99,0.6714,0.5848,0.4085,43.9,0.316,0.342,artifacts/cyber_models/ciciomt2024/ciciomt2024_1d_cnn_best.pt
+CICIoMT2024,tcn,0.9554,0.9932,0.9595,0.825,0.9603,0.9884,0.9993,0.1185,0.0405,62,384,0.6892,0.6128,0.5797,179.68,0.917,1.005,artifacts/cyber_models/ciciomt2024/ciciomt2024_tcn_best.pt
+CICIoMT2024,cnn_tcn,0.9552,0.9913,0.9612,0.8201,0.9597,0.9841,0.9991,0.153,0.0388,80,368,0.6907,0.6175,0.4713,187.26,0.872,0.957,artifacts/cyber_models/ciciomt2024/ciciomt2024_cnn_tcn_best.pt
+CICIoMT2024,cnn_tcn_bigru,0.9613,0.9922,0.9668,0.8395,0.9647,0.9866,0.9992,0.1377,0.0332,72,315,0.6655,0.5794,0.5556,217.26,1.722,1.784,artifacts/cyber_models/ciciomt2024/ciciomt2024_cnn_tcn_bigru_best.pt
+CICIoMT2024,cnn_tcn_attention,0.9619,0.993,0.9667,0.8429,0.9653,0.9896,0.9994,0.1243,0.0333,65,316,0.6721,0.5998,0.5169,231.25,1.391,1.441,artifacts/cyber_models/ciciomt2024/ciciomt2024_cnn_tcn_attention_best.pt
+CICIoMT2024,classical_matched,0.9624,0.9926,0.9675,0.8438,0.9657,0.9886,0.9994,0.13,0.0325,68,308,0.7145,0.6358,0.5401,232.06,1.709,1.903,artifacts/cyber_models/ciciomt2024/ciciomt2024_classical_matched_best.pt

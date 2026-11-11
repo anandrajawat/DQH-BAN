@@ -1,0 +1,52 @@
+{
+  "dataset": "CICIoMT2024",
+  "dataset_key": "ciciomt2024",
+  "optimal_threshold": 0.4585,
+  "validation_fpr": 0.0091,
+  "validation_fnr": 0.0031,
+  "expected_calibration_error": 0.233,
+  "optimization_criterion": "Min FNR with FPR <= 1.0%",
+  "baseline_threshold_05": {
+    "threshold": 0.5,
+    "validation_fpr": 0.0,
+    "validation_fnr": 0.0073
+  },
+  "reliability_bins": {
+    "bin_accs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.8958333333333334,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "bin_confs": [
+      0.09269776783072586,
+      0.15677596249716724,
+      0.24462710659528247,
+      0.3464689118772844,
+      0.46361125950019316,
+      0.5629875093899386,
+      0.6602064419187395,
+      0.7549018406958039,
+      0.8413848477523991,
+      0.9156586610262129
+    ],
+    "bin_counts": [
+      5,
+      47,
+      37,
+      16,
+      48,
+      223,
+      967,
+      2345,
+      2143,
+      169
+    ]
+  }
+}

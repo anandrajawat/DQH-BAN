@@ -1,0 +1,52 @@
+{
+  "dataset": "WUSTL-HDRL-2024",
+  "dataset_key": "wustl_hdrl",
+  "optimal_threshold": 0.5001,
+  "validation_fpr": 0.006,
+  "validation_fnr": 0.0044,
+  "expected_calibration_error": 0.2314,
+  "optimization_criterion": "Min FNR with FPR <= 1.0%",
+  "baseline_threshold_05": {
+    "threshold": 0.5,
+    "validation_fpr": 0.006,
+    "validation_fnr": 0.0044
+  },
+  "reliability_bins": {
+    "bin_accs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.010416666666666666,
+      0.3,
+      0.9873417721518988,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "bin_confs": [
+      0.08511583325159561,
+      0.15817110922005917,
+      0.24551108831263435,
+      0.3398754957583569,
+      0.43691148009771724,
+      0.5456061608356005,
+      0.6582063629285829,
+      0.7582582188296012,
+      0.8427743244548574,
+      0.9207960708151388
+    ],
+    "bin_counts": [
+      144,
+      1710,
+      1944,
+      782,
+      192,
+      40,
+      79,
+      185,
+      164,
+      10
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+# configs/datasets.yaml
+ciciomt2024:
+  name: "CICIoMT2024"
+  role: "Primary IoMT cybersecurity benchmark"
+  train_dir: "datasets/CICIoMT2024/WiFI_and_MQTT/attacks/csv/train"
+  test_dir: "datasets/CICIoMT2024/WiFI_and_MQTT/attacks/csv/test"
+  feature_count: 45
+  sequence_length: 10
+  batch_size: 128
+
+wustl_ehms:
+  name: "WUSTL-EHMS-2020"
+  role: "Healthcare-specific network & biometric benchmark"
+  path: "datasets/WUSTL_EHMS/wustl-ehms-2020_with_attacks_categories.csv"
+  excluded_columns:
+    - "SrcMac"
+    - "DstMac"
+    - "SrcAddr"
+    - "DstAddr"
+    - "Packet_num"
+  binary_label: "Label"
+  multiclass_label: "Attack Category"
+  split_ratios: [0.70, 0.15, 0.15]
+  seed: 42
+
+wustl_hdrl:
+  name: "WUSTL-HDRL-2024"
+  role: "Medical 5G & healthcare network security benchmark"
+  path: "datasets/WUSTL_HDRL/wustl_hdrl_2024.csv"
+  excluded_columns:
+    - "SrcMac"
+    - "DstMac"
+    - "SrcAddr"
+    - "DstAddr"
+    - "IMEI"
+    - "Boot_Time_with_date"
+    - "DTime"
+    - "RTime"
+    - "Packet_num"
+  binary_label: "Label"
+  multiclass_label: "Attack_categories"
+  split_ratios: [0.70, 0.15, 0.15]
+  seed: 42
+
+cic_iot2023:
+  name: "CIC-IoT-2023"
+  role: "Large-scale IoT generalization benchmark"
+  dir: "datasets/CIC_IOT_2023"
+  feature_count: 46
+  binary_label: "binary_label"
+  multiclass_label: "attack_family"
+  split_ratios: [0.70, 0.15, 0.15]
+  seed: 42
+
+ton_iot:
+  name: "ToN-IoT"
+  role: "External cybersecurity validation benchmark"
+  path: "datasets/TON_IOT/NF-ToN-IoT-v2.csv"
+  excluded_columns:
+    - "IPV4_SRC_ADDR"
+    - "IPV4_DST_ADDR"
+    - "L4_SRC_PORT"
+    - "L4_DST_PORT"
+  binary_label: "Label"
+  multiclass_label: "Attack"
+  sample_size: 100000
+  split_ratios: [0.70, 0.15, 0.15]
+  seed: 42
+
+bidmc:
+  name: "BIDMC PPG and Respiration Dataset"
+  dir: "datasets/BIDMC/bidmc-ppg-and-respiration-dataset-1.0.0"
+  sampling_rate_hz: 125
+  window_seconds: 5
+  window_samples: 625
+  train_subjects: 37
+  val_subjects: 8
+  test_subjects: 8
+
+mimic_perform:
+  name: "MIMIC PERform III AF and Non-AF Dataset"
+  dir: "datasets/MIMIC_PERform"
+  sampling_rate_hz: 125
+  window_seconds: 5
+  window_samples: 625
+  train_ratio: 0.70
+  test_ratio: 0.30
+  seed: 42
+
