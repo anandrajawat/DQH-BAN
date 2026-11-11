@@ -122,3 +122,171 @@ def test_hybrid_quantum_stacking_and_serialization(synthetic_data):
         if os.path.exists(save_path):
             os.remove(save_path)
 
+def test_xgboost_base_model(synthetic_data):
+    from xgboost import XGBClassifier
+    from training.hyperopt import tune_xgboost
+
+    d = synthetic_data
+    n_neg = int(np.sum(d["y_train_bin"] == 0))
+    n_pos = int(np.sum(d["y_train_bin"] == 1))
+    spw = float(np.clip(n_neg / max(n_pos, 1), 0.25, 6.0))
+
+    # 1. Hyperparameter tuning on validation split
+    best_params = tune_xgboost(
+        d["X_train"], d["y_train_bin"],
+        d["X_val"], d["y_val_bin"],
+        spw=spw, n_trials=3, seed=42
+    )
+    assert "n_estimators" in best_params
+    assert "max_depth" in best_params
+    assert best_params["scale_pos_weight"] == spw
+
+    # 2. Fit model with reproducible seed
+    xgb1 = XGBClassifier(**best_params, random_state=42, n_jobs=1)
+    xgb1.fit(d["X_train"], d["y_train_bin"])
+
+    probs1 = xgb1.predict_proba(d["X_test"])
+    assert probs1.shape == (len(d["X_test"]), 2)
+    assert np.all(probs1 >= 0.0) and np.all(probs1 <= 1.0)
+    np.testing.assert_allclose(probs1.sum(axis=1), 1.0, atol=1e-5)
+    assert list(xgb1.classes_) == [0, 1]
+
+    # 3. Determinism check with identical seed
+    xgb2 = XGBClassifier(**best_params, random_state=42, n_jobs=1)
+    xgb2.fit(d["X_train"], d["y_train_bin"])
+    probs2 = xgb2.predict_proba(d["X_test"])
+    np.testing.assert_allclose(probs1, probs2, atol=1e-6)
+
+def test_lightgbm_base_model(synthetic_data):
+    from lightgbm import LGBMClassifier
+    from training.hyperopt import tune_lightgbm
+
+    d = synthetic_data
+    n_neg = int(np.sum(d["y_train_bin"] == 0))
+    n_pos = int(np.sum(d["y_train_bin"] == 1))
+    spw = float(np.clip(n_neg / max(n_pos, 1), 0.25, 6.0))
+
+    # 1. Hyperparameter tuning on validation split
+    best_params = tune_lightgbm(
+        d["X_train"], d["y_train_bin"],
+        d["X_val"], d["y_val_bin"],
+        spw=spw, n_trials=3, seed=42
+    )
+    assert "n_estimators" in best_params
+    assert "num_leaves" in best_params
+    assert best_params["scale_pos_weight"] == spw
+
+    # 2. Fit model with reproducible seed
+    lgb1 = LGBMClassifier(**best_params, random_state=42, n_jobs=1, verbose=-1)
+    lgb1.fit(d["X_train"], d["y_train_bin"])
+
+    probs1 = lgb1.predict_proba(d["X_test"])
+    assert probs1.shape == (len(d["X_test"]), 2)
+    assert np.all(probs1 >= 0.0) and np.all(probs1 <= 1.0)
+    np.testing.assert_allclose(probs1.sum(axis=1), 1.0, atol=1e-5)
+    assert list(lgb1.classes_) == [0, 1]
+
+    # 3. Determinism check with identical seed
+    lgb2 = LGBMClassifier(**best_params, random_state=42, n_jobs=1, verbose=-1)
+    lgb2.fit(d["X_train"], d["y_train_bin"])
+    probs2 = lgb2.predict_proba(d["X_test"])
+    np.testing.assert_allclose(probs1, probs2, atol=1e-6)
+
+def test_random_forest_base_model(synthetic_data):
+    from sklearn.ensemble import RandomForestClassifier
+    from training.hyperopt import tune_random_forest
+
+    d = synthetic_data
+
+    # 1. Hyperparameter tuning on validation split
+    best_params = tune_random_forest(
+        d["X_train"], d["y_train_bin"],
+        d["X_val"], d["y_val_bin"],
+        n_trials=3, seed=42
+    )
+    assert "n_estimators" in best_params
+    assert "max_depth" in best_params
+
+    # 2. Fit model with reproducible seed
+    rf1 = RandomForestClassifier(**best_params, class_weight="balanced_subsample", random_state=42, n_jobs=1)
+    rf1.fit(d["X_train"], d["y_train_bin"])
+
+    probs1 = rf1.predict_proba(d["X_test"])
+    assert probs1.shape == (len(d["X_test"]), 2)
+    assert np.all(probs1 >= 0.0) and np.all(probs1 <= 1.0)
+    np.testing.assert_allclose(probs1.sum(axis=1), 1.0, atol=1e-5)
+    assert list(rf1.classes_) == [0, 1]
+
+    # 3. Determinism check with identical seed
+    rf2 = RandomForestClassifier(**best_params, class_weight="balanced_subsample", random_state=42, n_jobs=1)
+    rf2.fit(d["X_train"], d["y_train_bin"])
+    probs2 = rf2.predict_proba(d["X_test"])
+    np.testing.assert_allclose(probs1, probs2, atol=1e-6)
+
+def test_logistic_regression_base_and_meta_classifier(synthetic_data):
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.preprocessing import StandardScaler
+    from training.hyperopt import tune_logistic_regression, tune_meta_classifier
+
+    d = synthetic_data
+    scaler = StandardScaler().fit(d["X_train"])
+    X_tr_s = scaler.transform(d["X_train"])
+    X_va_s = scaler.transform(d["X_val"])
+    X_te_s = scaler.transform(d["X_test"])
+
+    # 1. Base Logistic Regression tuning
+    best_c = tune_logistic_regression(X_tr_s, d["y_train_bin"], X_va_s, d["y_val_bin"], n_trials=3, seed=42)
+    assert "C" in best_c
+
+    lr = LogisticRegression(**best_c, solver="lbfgs", max_iter=500, class_weight="balanced", random_state=42)
+    lr.fit(X_tr_s, d["y_train_bin"])
+    probs_lr = lr.predict_proba(X_te_s)
+    assert probs_lr.shape == (len(d["X_test"]), 2)
+    assert np.all(probs_lr >= 0.0) and np.all(probs_lr <= 1.0)
+    np.testing.assert_allclose(probs_lr.sum(axis=1), 1.0, atol=1e-5)
+
+    # 2. Stacking Meta-Classifier on pseudo OOF probabilities
+    p_tr = lr.predict_proba(X_tr_s)[:, 1]
+    S_oof = np.column_stack([p_tr, p_tr * 0.98, p_tr * 0.95])
+    meta_c = tune_meta_classifier(S_oof, d["y_train_bin"], n_trials=3, seed=42)
+    assert isinstance(meta_c, float) and meta_c > 0.0
+
+    meta = LogisticRegression(C=meta_c, solver="lbfgs", max_iter=500, random_state=42)
+    meta.fit(S_oof, d["y_train_bin"])
+    assert hasattr(meta, "coef_")
+    assert meta.coef_.shape == (1, 3)
+
+def test_threshold_and_calibration_optimization():
+    from training.threshold_optimizer import (
+        optimize_decision_threshold, compute_expected_calibration_error, compare_probability_calibrators
+    )
+
+    np.random.seed(42)
+    n = 200
+    y_true = np.random.binomial(1, 0.3, size=n)
+    # Probabilities correlated with ground truth
+    raw_probs = np.clip(y_true * 0.7 + np.random.uniform(0.05, 0.25, size=n), 0.01, 0.99)
+
+    # 1. Optimize decision threshold with FPR constraint
+    th_info = optimize_decision_threshold(raw_probs, y_true, target_max_fpr=0.01)
+    assert "optimal_threshold" in th_info
+    assert 0.0 < th_info["optimal_threshold"] < 1.0
+    assert "validation_fpr" in th_info
+    assert "validation_fnr" in th_info
+
+    # 2. Compute ECE
+    ece, cal_info = compute_expected_calibration_error(raw_probs, y_true, n_bins=10)
+    assert 0.0 <= ece <= 1.0
+    assert "brier_score" in cal_info
+    assert len(cal_info["bin_accs"]) == 10
+
+    # 3. Compare calibrators
+    comp = compare_probability_calibrators(raw_probs, y_true)
+    assert comp["selected_method"] in ["uncalibrated", "platt_scaling", "isotonic_regression"]
+    assert "uncalibrated" in comp
+
+
+
+
+
+

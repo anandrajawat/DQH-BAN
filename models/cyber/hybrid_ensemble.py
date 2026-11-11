@@ -34,6 +34,7 @@ from training.trainer import CyberTrainer
 from training.threshold_optimizer import (
     optimize_decision_threshold, compute_expected_calibration_error, compare_probability_calibrators
 )
+from training.hyperopt import tune_meta_classifier
 from evaluation.evaluator import evaluate_predictions, measure_inference_latency
 
 class DQHHybridStackingEnsemble:
@@ -59,7 +60,11 @@ class DQHHybridStackingEnsemble:
         meta_c=1.0,
         meta_penalty="l2",
         random_state=42,
-        device="cpu"
+        device="cpu",
+        xgb_params=None,
+        lgb_params=None,
+        rf_params=None,
+        lr_params=None
     ):
         self.in_features = in_features
         self.num_classes = num_classes
@@ -73,6 +78,12 @@ class DQHHybridStackingEnsemble:
         self.meta_penalty = meta_penalty
         self.random_state = random_state
         self.device = device
+
+        # Tuned or custom parameters for base models
+        self.xgb_params = dict(xgb_params) if xgb_params else {}
+        self.lgb_params = dict(lgb_params) if lgb_params else {}
+        self.rf_params = dict(rf_params) if rf_params else {}
+        self.lr_params = dict(lr_params) if lr_params else {}
 
         # Base models dictionary
         self.base_models = {}
@@ -95,36 +106,38 @@ class DQHHybridStackingEnsemble:
         self.meta_feature_names = []
 
     def _init_base_models(self, spw=1.0, xgb_params=None, lgb_params=None, rf_params=None, lr_params=None):
-        """Initializes all base models with dataset-tailored hyperparameter defaults."""
+        """Initializes all base models with dataset-tailored hyperparameter defaults and overrides."""
+        effective_xgb = {**self.xgb_params, **(xgb_params or {})}
+        effective_lgb = {**self.lgb_params, **(lgb_params or {})}
+        effective_rf = {**self.rf_params, **(rf_params or {})}
+        effective_lr = {**self.lr_params, **(lr_params or {})}
+
         xgb_cfg = {
             "n_estimators": 250, "max_depth": 7, "learning_rate": 0.06,
             "subsample": 0.85, "colsample_bytree": 0.85, "scale_pos_weight": spw,
-            "n_jobs": 1, "random_state": self.random_state, "eval_metric": "logloss"
+            "n_jobs": 1, "random_state": self.random_state, "eval_metric": "logloss",
+            "objective": "binary:logistic"
         }
-        if xgb_params:
-            xgb_cfg.update(xgb_params)
+        xgb_cfg.update(effective_xgb)
 
         lgb_cfg = {
             "n_estimators": 250, "max_depth": 7, "learning_rate": 0.06,
             "subsample": 0.85, "colsample_bytree": 0.85, "scale_pos_weight": spw,
             "n_jobs": 1, "random_state": self.random_state, "verbose": -1
         }
-        if lgb_params:
-            lgb_cfg.update(lgb_params)
+        lgb_cfg.update(effective_lgb)
 
         rf_cfg = {
             "n_estimators": 150, "max_depth": 14, "class_weight": "balanced_subsample",
             "n_jobs": 1, "random_state": self.random_state
         }
-        if rf_params:
-            rf_cfg.update(rf_params)
+        rf_cfg.update(effective_rf)
 
         lr_cfg = {
             "C": 1.0, "max_iter": 500, "class_weight": "balanced",
             "solver": "lbfgs", "random_state": self.random_state
         }
-        if lr_params:
-            lr_cfg.update(lr_params)
+        lr_cfg.update(effective_lr)
 
         models = {
             "xgboost": XGBClassifier(**xgb_cfg),
@@ -157,7 +170,11 @@ class DQHHybridStackingEnsemble:
         dl_lr=0.002,
         feature_schema_hash="",
         class_names=None,
-        optuna_tune_meta=True
+        optuna_tune_meta=True,
+        xgb_params=None,
+        lgb_params=None,
+        rf_params=None,
+        lr_params=None
     ):
         """
         Executes strict out-of-fold (OOF) cross-validation on X_train to produce meta-features:
@@ -166,6 +183,15 @@ class DQHHybridStackingEnsemble:
         3. Refits all base models on the full X_train.
         4. Evaluates and calibrates probabilities & threshold on X_val.
         """
+        if xgb_params:
+            self.xgb_params.update(xgb_params)
+        if lgb_params:
+            self.lgb_params.update(lgb_params)
+        if rf_params:
+            self.rf_params.update(rf_params)
+        if lr_params:
+            self.lr_params.update(lr_params)
+
         t0 = time.time()
         self.class_names = class_names or [f"Class_{i}" for i in range(self.num_classes)]
         n_train = len(X_train)
@@ -244,15 +270,19 @@ class DQHHybridStackingEnsemble:
         # Train Stacking Meta-Classifier (Regularized Logistic Regression)
         best_c = self.meta_c
         if optuna_tune_meta:
-            best_f1 = -1.0
-            for c_cand in [0.01, 0.1, 0.5, 1.0, 2.0, 5.0, 10.0]:
-                meta_trial = LogisticRegression(C=c_cand, solver="lbfgs", max_iter=1000, random_state=self.random_state)
-                meta_trial.fit(S_meta_train, y_train_binary)
-                preds = meta_trial.predict(S_meta_train)
-                f1_val = float(np.mean(preds == y_train_binary))
-                if f1_val > best_f1:
-                    best_f1 = f1_val
-                    best_c = c_cand
+            try:
+                best_c = tune_meta_classifier(S_meta_train, y_train_binary, n_trials=10, seed=self.random_state)
+            except Exception as e:
+                print(f"Meta-classifier Optuna note: {e}, falling back to grid scan")
+                best_f1 = -1.0
+                for c_cand in [0.01, 0.1, 0.5, 1.0, 2.0, 5.0, 10.0]:
+                    meta_trial = LogisticRegression(C=c_cand, solver="lbfgs", max_iter=1000, random_state=self.random_state)
+                    meta_trial.fit(S_meta_train, y_train_binary)
+                    preds = meta_trial.predict(S_meta_train)
+                    f1_val = float(np.mean(preds == y_train_binary))
+                    if f1_val > best_f1:
+                        best_f1 = f1_val
+                        best_c = c_cand
         self.meta_c = best_c
 
         self.meta_classifier_binary = LogisticRegression(
@@ -431,6 +461,10 @@ class DQHHybridStackingEnsemble:
             "lightgbm": self.base_models["lightgbm"],
             "random_forest": self.base_models["random_forest"],
             "logistic_regression": self.base_models["logistic_regression"],
+            "xgb_params": self.xgb_params,
+            "lgb_params": self.lgb_params,
+            "rf_params": self.rf_params,
+            "lr_params": self.lr_params,
             "lr_scaler": self.lr_scaler,
             "meta_classifier_binary": self.meta_classifier_binary,
             "meta_classifier_multi": self.meta_classifier_multi,
@@ -467,7 +501,11 @@ class DQHHybridStackingEnsemble:
             dl_mode=data["dl_mode"],
             include_dl=include_dl,
             meta_c=data["meta_c"],
-            device=device
+            device=device,
+            xgb_params=data.get("xgb_params"),
+            lgb_params=data.get("lgb_params"),
+            rf_params=data.get("rf_params"),
+            lr_params=data.get("lr_params")
         )
 
         models = {

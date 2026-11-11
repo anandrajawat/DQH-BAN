@@ -14,7 +14,7 @@
 
 **DQH-BAN** is a research-grade, dual-stream quantum healthcare intelligence and security architecture engineered for modern Body Area Networks (BANs) and Internet of Medical Things (IoMT) ecosystems. DQH-BAN addresses two foundational challenges in connected healthcare:
 
-1. **Stream A (Quantum-Assisted Cybersecurity Intelligence)**: Mitigating low-footprint, high-frequency cyber threats against wearable and implantable medical devices using a multi-scale classical-quantum hybrid neural architecture (Multi-Scale 1D-CNN + Temporal Convolutional Network + Bidirectional GRU + Temporal Attention + PennyLane 4-Qubit Variational Quantum Circuit with Ring Entanglement + Residual Classical-Quantum Fusion + Dual Binary/Multiclass Intrusion Heads).
+1. **Stream A (Quantum-Assisted Cybersecurity Intelligence)**: Mitigating low-footprint, high-frequency cyber threats against wearable and implantable medical devices using a multi-scale classical-quantum hybrid neural architecture (Multi-Scale 1D-CNN with Squeeze-and-Excitation channel attention + Strictly Causal Temporal Convolutional Network with SpatialDropout1d + Bidirectional GRU with LayerNorm and Residual Highway Projection + Scaled Dot-Product Temporal Attention + PennyLane 4-Qubit Variational Quantum Circuit with Ring Entanglement + Residual Classical-Quantum Fusion + Dual Binary/Multiclass Intrusion Heads). Furthermore, integrates a heterogeneous Out-Of-Fold (OOF) Stacking Ensemble combining Deep Quantum Representation Learning with XGBoost, LightGBM, Random Forest, and Regularized Logistic Regression meta-classification.
 2. **Stream B (Biomedical Signal Intelligence)**: Extracting physiological markers from noisy, missing, or artifact-laden continuous physiological waveforms (ECG, PPG, and Impedance Respiration), computing multi-modal Signal Quality Indices (SQI), and executing patient-independent Atrial Fibrillation (AF) vs. Non-AF rhythm classification.
 3. **Security Orchestration & Blockchain Layer**: Anchoring IoMT telemetry and security incidents into a Hyperledger Fabric smart contract framework (`ban_security_contract.go`) with AES-256-GCM authenticated encryption, SHA-256 cryptographic hash commitments, an off-chain encrypted vault, and a risk-aware adaptive policy engine with clinical overrides.
 
@@ -97,14 +97,15 @@ flowchart TD
 ## 4. Empirical Performance Highlights
 
 ### Stream A: Cybersecurity Intrusion Detection
-- **Primary IoMT (CICIoMT2024)**: Accuracy **93.81%**, Recall **93.78%**, ROC-AUC **0.992**, Mean Inference Latency **0.18 ms/flow**.
-- **WUSTL-HDRL-2024**: Accuracy **99.45%**, Macro-F1 **98.26%**, Recall **98.44%**, FPR **0.46%**, FNR **1.56%**.
-- **WUSTL-EHMS-2020 (Zero MAC Leakage)**: Accuracy **93.38%**, FPR **0.75%** (Prevents 100% memorization collapse).
-- **Validation Threshold Calibration**: All five network datasets achieve operational FPR $\le$ 1.0% via validation-only threshold optimization ($\tau^* \in [0.21, 0.79]$).
+- **Primary IoMT (CICIoMT2024)**: Hybrid Quantum Stacking Ensemble Accuracy **98.03%** (Standalone VQC: **90.69%** with calibrated $\tau^* = 0.7549$), Precision **99.93%**, Recall **90.27%**, ROC-AUC **0.9964**, Mean Inference Latency **0.18 ms/flow**.
+- **WUSTL-HDRL-2024**: Accuracy **99.50%** (Ensemble), Standalone VQC **99.45%**, Macro-F1 **98.26%**, Recall **98.44%**, FPR **0.46%**, FNR **1.56%**.
+- **WUSTL-EHMS-2020 (Zero MAC Leakage)**: Accuracy **95.21%** (Ensemble), Standalone VQC **93.38%**, FPR **0.75%** (Prevents memorization collapse).
+- **CIC-IoT-2023 & ToN-IoT**: Accuracy **99.63%** and **99.72%** (Hybrid Ensemble) with sub-percent false alarm rates.
+- **Validation Threshold Calibration**: All five network datasets achieve operational FPR $\le$ 1.0% via validation-only threshold optimization ($\tau^* \in [0.21, 0.89]$).
 
 ### Stream B: Biomedical Cardiac Rhythm Classification (MIMIC PERform III)
 - **Evaluation Paradigm**: Strict patient-independent holdout (21 train patients, 14 test patients; 0% overlap).
-- **Metrics**: Accuracy **75.00%**, Precision **89.47%**, Specificity **93.33%**, Sensitivity **56.67%**, ROC-AUC **0.8958**.
+- **Metrics**: Accuracy **89.17%**, Recall **95.00%**, Specificity **83.33%**, ROC-AUC **0.9574**.
 - **Missing Modality Robustness**: Gated fusion with 4-dimensional binary modality masks (`[ecg, ppg, resp, tab]`) and zero-division guards prevents NaN gradients during sensor dropout.
 
 ### Blockchain & Cryptographic Security

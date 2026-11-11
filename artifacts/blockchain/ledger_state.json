@@ -405,6 +405,864 @@
         ],
         "registered_at": "2026-11-11T10:21:58Z"
       }
+    },
+    {
+      "block_number": 22,
+      "timestamp": "2026-11-11T11:50:59Z",
+      "previous_hash": "10ec47a967b1f45e70b849992fad72b371c25021c44ec8852935c13349d52b30",
+      "block_hash": "5747fa99ab0f2968e2da8cce858d97a38aa5cc389b581793661fb08cf3b03578",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794397859211",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-ICMP",
+        "threat_score": 0.999690055847168,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T11:50:59Z"
+      }
+    },
+    {
+      "block_number": 23,
+      "timestamp": "2026-11-11T11:50:59Z",
+      "previous_hash": "5747fa99ab0f2968e2da8cce858d97a38aa5cc389b581793661fb08cf3b03578",
+      "block_hash": "913daf3d6886119fd9767e7568db8810730e802323cfe666de1617be5a58ed64",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794397859227",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-UDP",
+        "threat_score": 0.9999376535415649,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T11:50:59Z"
+      }
+    },
+    {
+      "block_number": 24,
+      "timestamp": "2026-11-11T11:50:59Z",
+      "previous_hash": "913daf3d6886119fd9767e7568db8810730e802323cfe666de1617be5a58ed64",
+      "block_hash": "5b442edee8a49e740e51547fe0256b962a48746e8981462b2761e2e6e26ac963",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794397859232",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DoS-TCP",
+        "threat_score": 0.9994470477104187,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T11:50:59Z"
+      }
+    },
+    {
+      "block_number": 25,
+      "timestamp": "2026-11-11T11:50:59Z",
+      "previous_hash": "5b442edee8a49e740e51547fe0256b962a48746e8981462b2761e2e6e26ac963",
+      "block_hash": "74dd34c83640ad96e41ef5cf7ef16fac33b3e6d62892c9111aee4c5691eef643",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794397859235",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T11:50:59Z"
+      }
+    },
+    {
+      "block_number": 26,
+      "timestamp": "2026-11-11T12:14:29Z",
+      "previous_hash": "74dd34c83640ad96e41ef5cf7ef16fac33b3e6d62892c9111aee4c5691eef643",
+      "block_hash": "373589ea587b47b28eca817c54e4e18823493b9544e11833ccd24840cf944b3d",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794399269828",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636642821546,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T12:14:29Z"
+      }
+    },
+    {
+      "block_number": 27,
+      "timestamp": "2026-11-11T12:14:29Z",
+      "previous_hash": "373589ea587b47b28eca817c54e4e18823493b9544e11833ccd24840cf944b3d",
+      "block_hash": "3ca61b600a389a78cfb0f8d31187187ec25e9cc2f940af31b30482fd953a6c46",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794399269853",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636642821546,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T12:14:29Z"
+      }
+    },
+    {
+      "block_number": 28,
+      "timestamp": "2026-11-11T12:14:29Z",
+      "previous_hash": "3ca61b600a389a78cfb0f8d31187187ec25e9cc2f940af31b30482fd953a6c46",
+      "block_hash": "778fe32411af32f95e2c5d23ef2061d1b500f8a0633786eeba2a60cf8b9f6d1a",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794399269867",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+        "threat_score": 0.8719324026818174,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T12:14:29Z"
+      }
+    },
+    {
+      "block_number": 29,
+      "timestamp": "2026-11-11T12:14:29Z",
+      "previous_hash": "778fe32411af32f95e2c5d23ef2061d1b500f8a0633786eeba2a60cf8b9f6d1a",
+      "block_hash": "ddf56cca82f78daf1e8f1da774bc20a1893df51335dd7d3f79a3dcf329758974",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794399269872",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T12:14:29Z"
+      }
+    },
+    {
+      "block_number": 30,
+      "timestamp": "2026-11-11T12:49:07Z",
+      "previous_hash": "ddf56cca82f78daf1e8f1da774bc20a1893df51335dd7d3f79a3dcf329758974",
+      "block_hash": "18ae230fc5770c0d348f9be8b06e3fbe4c84e42abb5f51b24d835175615346b0",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794401347566",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636642821546,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T12:49:07Z"
+      }
+    },
+    {
+      "block_number": 31,
+      "timestamp": "2026-11-11T12:49:07Z",
+      "previous_hash": "18ae230fc5770c0d348f9be8b06e3fbe4c84e42abb5f51b24d835175615346b0",
+      "block_hash": "d5713a37955ccfd8dc81b1b4646985b3889d7b365564a854e50a75272404e584",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794401347588",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636642821546,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T12:49:07Z"
+      }
+    },
+    {
+      "block_number": 32,
+      "timestamp": "2026-11-11T12:49:07Z",
+      "previous_hash": "d5713a37955ccfd8dc81b1b4646985b3889d7b365564a854e50a75272404e584",
+      "block_hash": "fcf23b8e0d6d18a4f6e882c7d56d4db344c8b0f73635183df64627a82943f6a9",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794401347600",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+        "threat_score": 0.8719324026818174,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T12:49:07Z"
+      }
+    },
+    {
+      "block_number": 33,
+      "timestamp": "2026-11-11T12:49:07Z",
+      "previous_hash": "fcf23b8e0d6d18a4f6e882c7d56d4db344c8b0f73635183df64627a82943f6a9",
+      "block_hash": "a5622f7e28c020eaff3639a301a50cf37019ec63b1e116da44ffc78be5f22d5b",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794401347604",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T12:49:07Z"
+      }
+    },
+    {
+      "block_number": 34,
+      "timestamp": "2026-11-11T12:49:20Z",
+      "previous_hash": "a5622f7e28c020eaff3639a301a50cf37019ec63b1e116da44ffc78be5f22d5b",
+      "block_hash": "db96dbccd97dc3f030e357c59bc058106b2e0d9e223835f212763d0392f81a58",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_01_1794401360643",
+        "device_id": "Smartwatch_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DoS-TCP",
+        "threat_score": 0.9995597553623755,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T12:49:20Z"
+      }
+    },
+    {
+      "block_number": 35,
+      "timestamp": "2026-11-11T12:49:29Z",
+      "previous_hash": "db96dbccd97dc3f030e357c59bc058106b2e0d9e223835f212763d0392f81a58",
+      "block_hash": "696b9906623334066cd504c1e7e676768397c494153e218423e78bc00efe79c7",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_01_1794401369938",
+        "device_id": "Smartwatch_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DoS-TCP",
+        "threat_score": 0.9995597553623755,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T12:49:29Z"
+      }
+    },
+    {
+      "block_number": 36,
+      "timestamp": "2026-11-11T15:04:12Z",
+      "previous_hash": "696b9906623334066cd504c1e7e676768397c494153e218423e78bc00efe79c7",
+      "block_hash": "52cb2d5e30092e23cc2f6e1cb621aae1753b79ff8949f41f8f93f7212cae881f",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794409452571",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636642821546,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T15:04:12Z"
+      }
+    },
+    {
+      "block_number": 37,
+      "timestamp": "2026-11-11T15:04:12Z",
+      "previous_hash": "52cb2d5e30092e23cc2f6e1cb621aae1753b79ff8949f41f8f93f7212cae881f",
+      "block_hash": "6283fcef25ea6f0b36e9e53aa7a3ecc893c18df5331ba2d20abc84cec6ed15a1",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794409452594",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636642821546,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T15:04:12Z"
+      }
+    },
+    {
+      "block_number": 38,
+      "timestamp": "2026-11-11T15:04:12Z",
+      "previous_hash": "6283fcef25ea6f0b36e9e53aa7a3ecc893c18df5331ba2d20abc84cec6ed15a1",
+      "block_hash": "c83c8ce49db15c2934e77f4a7bb42d8ded7cbe3b62d0efbf7e7810a54ad9dd36",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794409452606",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+        "threat_score": 0.8719324026818174,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T15:04:12Z"
+      }
+    },
+    {
+      "block_number": 39,
+      "timestamp": "2026-11-11T15:04:12Z",
+      "previous_hash": "c83c8ce49db15c2934e77f4a7bb42d8ded7cbe3b62d0efbf7e7810a54ad9dd36",
+      "block_hash": "96da2d0d7a02fd33099362e77c5bc707d9575b81cd2a56f41aaa4dc6febb424e",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794409452611",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T15:04:12Z"
+      }
+    },
+    {
+      "block_number": 40,
+      "timestamp": "2026-11-11T15:21:58Z",
+      "previous_hash": "96da2d0d7a02fd33099362e77c5bc707d9575b81cd2a56f41aaa4dc6febb424e",
+      "block_hash": "c3170d409152bb5edc3cfbc5d01671ecb26e785f07499fbb883126258dd07171",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794410518162",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:MQTT-Malformed_Data",
+        "threat_score": 0.9989321827888489,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T15:21:58Z"
+      }
+    },
+    {
+      "block_number": 41,
+      "timestamp": "2026-11-11T15:21:58Z",
+      "previous_hash": "c3170d409152bb5edc3cfbc5d01671ecb26e785f07499fbb883126258dd07171",
+      "block_hash": "23d657a8cf7dc8a6817afab7e5ea3648e4ec611718c84441f91e2c3fe524d3ef",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794410518174",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9999854564666748,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T15:21:58Z"
+      }
+    },
+    {
+      "block_number": 42,
+      "timestamp": "2026-11-11T15:21:58Z",
+      "previous_hash": "23d657a8cf7dc8a6817afab7e5ea3648e4ec611718c84441f91e2c3fe524d3ef",
+      "block_hash": "912be072c4abffdc56d33d828c0a8ce9cfb1f2a587634e3295bc847d9b58e6ca",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794410518179",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+        "threat_score": 0.994132936000824,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T15:21:58Z"
+      }
+    },
+    {
+      "block_number": 43,
+      "timestamp": "2026-11-11T15:21:58Z",
+      "previous_hash": "912be072c4abffdc56d33d828c0a8ce9cfb1f2a587634e3295bc847d9b58e6ca",
+      "block_hash": "e1efc0057cb868c19d6a08bf35b35da56894ad4aeb2b0873d52446cd7b6e187e",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794410518183",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T15:21:58Z"
+      }
+    },
+    {
+      "block_number": 44,
+      "timestamp": "2026-11-11T15:24:21Z",
+      "previous_hash": "e1efc0057cb868c19d6a08bf35b35da56894ad4aeb2b0873d52446cd7b6e187e",
+      "block_hash": "6aa0b2952eb28069ebb27cf8f80e4eba5dd7fc06c6fbaa8de9923d6f045846e1",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794410661629",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DoS-ICMP",
+        "threat_score": 0.9999622106552124,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T15:24:21Z"
+      }
+    },
+    {
+      "block_number": 45,
+      "timestamp": "2026-11-11T15:24:21Z",
+      "previous_hash": "6aa0b2952eb28069ebb27cf8f80e4eba5dd7fc06c6fbaa8de9923d6f045846e1",
+      "block_hash": "11f3633a3d50335686070cf3ea80ac8c8b00f511e3b9aa5bf5d0dedddccf93bb",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794410661644",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-ICMP",
+        "threat_score": 0.9999752044677734,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T15:24:21Z"
+      }
+    },
+    {
+      "block_number": 46,
+      "timestamp": "2026-11-11T15:24:21Z",
+      "previous_hash": "11f3633a3d50335686070cf3ea80ac8c8b00f511e3b9aa5bf5d0dedddccf93bb",
+      "block_hash": "3db5e443c958a4dc8100edf778feb73bf300422b2254549a332c158f24b86eb7",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794410661649",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9985777139663696,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T15:24:21Z"
+      }
+    },
+    {
+      "block_number": 47,
+      "timestamp": "2026-11-11T15:24:21Z",
+      "previous_hash": "3db5e443c958a4dc8100edf778feb73bf300422b2254549a332c158f24b86eb7",
+      "block_hash": "5c45c8770545415bbc799ef50de43124e663abd731752b4f8f2c1e4c4df9a19b",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794410661653",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T15:24:21Z"
+      }
+    },
+    {
+      "block_number": 48,
+      "timestamp": "2026-11-11T15:25:01Z",
+      "previous_hash": "5c45c8770545415bbc799ef50de43124e663abd731752b4f8f2c1e4c4df9a19b",
+      "block_hash": "fd4b37fd3496bb108dc99326dfb85146b38f547b972e875dae597c36a214f532",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794410701588",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9984532594680786,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T15:25:01Z"
+      }
+    },
+    {
+      "block_number": 49,
+      "timestamp": "2026-11-11T15:25:01Z",
+      "previous_hash": "fd4b37fd3496bb108dc99326dfb85146b38f547b972e875dae597c36a214f532",
+      "block_hash": "3f5a05e6c8c11b1f8c45ccc5b15dbca83260496ca1deb3c36c96b72f27df171d",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Audit_Test_Dev_1794410701715",
+        "device_type": "Sensor",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T15:25:01Z"
+      }
+    },
+    {
+      "block_number": 50,
+      "timestamp": "2026-11-11T15:43:20Z",
+      "previous_hash": "3f5a05e6c8c11b1f8c45ccc5b15dbca83260496ca1deb3c36c96b72f27df171d",
+      "block_hash": "736757e528a93529d6627cad431042b71ce135744df38733a44f857f62e1b350",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794411800634",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995597546443741,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T15:43:20Z"
+      }
+    },
+    {
+      "block_number": 51,
+      "timestamp": "2026-11-11T15:43:20Z",
+      "previous_hash": "736757e528a93529d6627cad431042b71ce135744df38733a44f857f62e1b350",
+      "block_hash": "de25f9ba5b9f05f9ae534b852ed61b3576fc7918506064c7776f0868b40fa5a0",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Audit_Test_Dev_1794411800761",
+        "device_type": "Sensor",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T15:43:20Z"
+      }
+    },
+    {
+      "block_number": 52,
+      "timestamp": "2026-11-11T16:01:23Z",
+      "previous_hash": "de25f9ba5b9f05f9ae534b852ed61b3576fc7918506064c7776f0868b40fa5a0",
+      "block_hash": "27c926fdfc631e43f9919a50786ceb801276e87b1523f4ed9dcdd76536b1335d",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794412883725",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995597546443741,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T16:01:23Z"
+      }
+    },
+    {
+      "block_number": 53,
+      "timestamp": "2026-11-11T16:01:23Z",
+      "previous_hash": "27c926fdfc631e43f9919a50786ceb801276e87b1523f4ed9dcdd76536b1335d",
+      "block_hash": "3cfcdb770ffe90b8369065cf88d3592dfdd1ae85f7cfcdd66d070ca6d57d4bc8",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Audit_Test_Dev_1794412883856",
+        "device_type": "Sensor",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T16:01:23Z"
+      }
+    },
+    {
+      "block_number": 54,
+      "timestamp": "2026-11-11T16:01:55Z",
+      "previous_hash": "3cfcdb770ffe90b8369065cf88d3592dfdd1ae85f7cfcdd66d070ca6d57d4bc8",
+      "block_hash": "067ef6924b2ec7ab09637d1e8b748d82906241c1f4ed29fd5e2045475b7fbc33",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794412915724",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636568286217,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T16:01:55Z"
+      }
+    },
+    {
+      "block_number": 55,
+      "timestamp": "2026-11-11T16:01:55Z",
+      "previous_hash": "067ef6924b2ec7ab09637d1e8b748d82906241c1f4ed29fd5e2045475b7fbc33",
+      "block_hash": "dfd6b3c4779a5f463f2730e755af060ce4cf5ca3e4b89f71e42df3ef3ba5daf5",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794412915747",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636568286217,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T16:01:55Z"
+      }
+    },
+    {
+      "block_number": 56,
+      "timestamp": "2026-11-11T16:01:55Z",
+      "previous_hash": "dfd6b3c4779a5f463f2730e755af060ce4cf5ca3e4b89f71e42df3ef3ba5daf5",
+      "block_hash": "25065b3bd54038512326522ce9dc66b41c237b3aaa509c3c4ceb3439db29538c",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794412915761",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+        "threat_score": 0.8719334891898052,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T16:01:55Z"
+      }
+    },
+    {
+      "block_number": 57,
+      "timestamp": "2026-11-11T16:01:55Z",
+      "previous_hash": "25065b3bd54038512326522ce9dc66b41c237b3aaa509c3c4ceb3439db29538c",
+      "block_hash": "9d1bec628fe12b49446279b52fba869637f7359245acd199e4fbe79b78578b1c",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794412915766",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T16:01:55Z"
+      }
+    },
+    {
+      "block_number": 58,
+      "timestamp": "2026-11-11T16:03:52Z",
+      "previous_hash": "9d1bec628fe12b49446279b52fba869637f7359245acd199e4fbe79b78578b1c",
+      "block_hash": "2a4a04d8424cb085a4e7103ebce2ca0b2529350042e2b9e40a26c97120752634",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794413032862",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995597546443741,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T16:03:52Z"
+      }
+    },
+    {
+      "block_number": 59,
+      "timestamp": "2026-11-11T16:03:52Z",
+      "previous_hash": "2a4a04d8424cb085a4e7103ebce2ca0b2529350042e2b9e40a26c97120752634",
+      "block_hash": "073cfc29b6940dd858f3b0554e26b3871037d3bc40e36390304e36fb0a4fc868",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Audit_Test_Dev_1794413032989",
+        "device_type": "Sensor",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T16:03:52Z"
+      }
+    },
+    {
+      "block_number": 60,
+      "timestamp": "2026-11-11T16:04:04Z",
+      "previous_hash": "073cfc29b6940dd858f3b0554e26b3871037d3bc40e36390304e36fb0a4fc868",
+      "block_hash": "a0519b8e29913ef177f8e5f53f7f084eacf8920be325c75c5121809cb3b69613",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794413044969",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636568323474,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T16:04:04Z"
+      }
+    },
+    {
+      "block_number": 61,
+      "timestamp": "2026-11-11T16:04:04Z",
+      "previous_hash": "a0519b8e29913ef177f8e5f53f7f084eacf8920be325c75c5121809cb3b69613",
+      "block_hash": "7d26a1b1bae780c396970624d47e1df0901543536c970ea3664b02e90f3604da",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794413044993",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636568323474,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T16:04:04Z"
+      }
+    },
+    {
+      "block_number": 62,
+      "timestamp": "2026-11-11T16:04:05Z",
+      "previous_hash": "7d26a1b1bae780c396970624d47e1df0901543536c970ea3664b02e90f3604da",
+      "block_hash": "43fe45abaf9aa6ca4c80449539b74b62a157ca3ddebd9326c7cc1562645679ed",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794413045007",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+        "threat_score": 0.8719334958671785,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T16:04:05Z"
+      }
+    },
+    {
+      "block_number": 63,
+      "timestamp": "2026-11-11T16:04:05Z",
+      "previous_hash": "43fe45abaf9aa6ca4c80449539b74b62a157ca3ddebd9326c7cc1562645679ed",
+      "block_hash": "8452121f268ebac85f41d272278d435826cfedd41eb125bc9c12576e63cb8667",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794413045012",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T16:04:05Z"
+      }
+    },
+    {
+      "block_number": 64,
+      "timestamp": "2026-11-11T16:04:41Z",
+      "previous_hash": "8452121f268ebac85f41d272278d435826cfedd41eb125bc9c12576e63cb8667",
+      "block_hash": "7c93bb4b4b029a7ae670b7f01b43158d674bf27de96bf899bc9fa15def168072",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794413081157",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995597546443741,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T16:04:41Z"
+      }
+    },
+    {
+      "block_number": 65,
+      "timestamp": "2026-11-11T16:04:41Z",
+      "previous_hash": "7c93bb4b4b029a7ae670b7f01b43158d674bf27de96bf899bc9fa15def168072",
+      "block_hash": "901b7a3ce96d75d3882a193404a184d538b5bee49f7c30872157711c9b587973",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "Audit_Test_Dev_1794413081292",
+        "device_type": "Sensor",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T16:04:41Z"
+      }
+    },
+    {
+      "block_number": 66,
+      "timestamp": "2026-11-11T16:04:48Z",
+      "previous_hash": "901b7a3ce96d75d3882a193404a184d538b5bee49f7c30872157711c9b587973",
+      "block_hash": "2ad6735b45859727279dd928b94304e996a376fb3b01e942a4041a67f22f82e6",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_Smartwatch_Wearable_1794413088153",
+        "device_id": "Smartwatch_Wearable",
+        "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636568323474,
+        "severity": "CRITICAL",
+        "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+        "timestamp": "2026-11-11T16:04:48Z"
+      }
+    },
+    {
+      "block_number": 67,
+      "timestamp": "2026-11-11T16:04:48Z",
+      "previous_hash": "2ad6735b45859727279dd928b94304e996a376fb3b01e942a4041a67f22f82e6",
+      "block_hash": "be7571294081305cc30d14daa30129c207674bfd1b7732b476effaa4c553e576",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_01_1794413088177",
+        "device_id": "DEV_01",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+        "threat_score": 0.9995636568323474,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T16:04:48Z"
+      }
+    },
+    {
+      "block_number": 68,
+      "timestamp": "2026-11-11T16:04:48Z",
+      "previous_hash": "be7571294081305cc30d14daa30129c207674bfd1b7732b476effaa4c553e576",
+      "block_hash": "b88597c257c02db404ea88aba97972a2b038c28c1a0faa9981872731314181a5",
+      "tx_type": "recordSecurityEvent",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "event_id": "EVT_DEV_02_1794413088192",
+        "device_id": "DEV_02",
+        "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+        "threat_score": 0.8719334910976262,
+        "severity": "CRITICAL",
+        "action_taken": "CHALLENGE_AUTHENTICATION",
+        "timestamp": "2026-11-11T16:04:48Z"
+      }
+    },
+    {
+      "block_number": 69,
+      "timestamp": "2026-11-11T16:04:48Z",
+      "previous_hash": "b88597c257c02db404ea88aba97972a2b038c28c1a0faa9981872731314181a5",
+      "block_hash": "241253ca20313dd4f1dbfcecf3a875de76fa565c6f443030d989e9ec6be4d657",
+      "tx_type": "registerDevice",
+      "execution_engine": "Fabric_Cryptographic_Ledger_Fallback",
+      "payload": {
+        "device_id": "API_TEST_DEV_1794413088197",
+        "device_type": "Insulin_Pump",
+        "owner_msp": "Org1MSP",
+        "public_key_pem": "",
+        "status": "ACTIVE",
+        "authorized_roles": [
+          "Org1MSP",
+          "AttendingPhysician"
+        ],
+        "registered_at": "2026-11-11T16:04:48Z"
+      }
     }
   ],
   "devices": {
@@ -527,6 +1385,174 @@
         "AttendingPhysician"
       ],
       "registered_at": "2026-11-11T10:21:58Z"
+    },
+    "API_TEST_DEV_1794397859235": {
+      "device_id": "API_TEST_DEV_1794397859235",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T11:50:59Z"
+    },
+    "API_TEST_DEV_1794399269872": {
+      "device_id": "API_TEST_DEV_1794399269872",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T12:14:29Z"
+    },
+    "API_TEST_DEV_1794401347604": {
+      "device_id": "API_TEST_DEV_1794401347604",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T12:49:07Z"
+    },
+    "API_TEST_DEV_1794409452611": {
+      "device_id": "API_TEST_DEV_1794409452611",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T15:04:12Z"
+    },
+    "API_TEST_DEV_1794410518183": {
+      "device_id": "API_TEST_DEV_1794410518183",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T15:21:58Z"
+    },
+    "API_TEST_DEV_1794410661653": {
+      "device_id": "API_TEST_DEV_1794410661653",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T15:24:21Z"
+    },
+    "Audit_Test_Dev_1794410701715": {
+      "device_id": "Audit_Test_Dev_1794410701715",
+      "device_type": "Sensor",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T15:25:01Z"
+    },
+    "Audit_Test_Dev_1794411800761": {
+      "device_id": "Audit_Test_Dev_1794411800761",
+      "device_type": "Sensor",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T15:43:20Z"
+    },
+    "Audit_Test_Dev_1794412883856": {
+      "device_id": "Audit_Test_Dev_1794412883856",
+      "device_type": "Sensor",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T16:01:23Z"
+    },
+    "API_TEST_DEV_1794412915766": {
+      "device_id": "API_TEST_DEV_1794412915766",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T16:01:55Z"
+    },
+    "Audit_Test_Dev_1794413032989": {
+      "device_id": "Audit_Test_Dev_1794413032989",
+      "device_type": "Sensor",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T16:03:52Z"
+    },
+    "API_TEST_DEV_1794413045012": {
+      "device_id": "API_TEST_DEV_1794413045012",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T16:04:05Z"
+    },
+    "Audit_Test_Dev_1794413081292": {
+      "device_id": "Audit_Test_Dev_1794413081292",
+      "device_type": "Sensor",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T16:04:41Z"
+    },
+    "API_TEST_DEV_1794413088197": {
+      "device_id": "API_TEST_DEV_1794413088197",
+      "device_type": "Insulin_Pump",
+      "owner_msp": "Org1MSP",
+      "public_key_pem": "",
+      "status": "ACTIVE",
+      "authorized_roles": [
+        "Org1MSP",
+        "AttendingPhysician"
+      ],
+      "registered_at": "2026-11-11T16:04:48Z"
     }
   },
   "data_hashes": {},
@@ -638,6 +1664,312 @@
       "severity": "CRITICAL",
       "action_taken": "CHALLENGE_AUTHENTICATION",
       "timestamp": "2026-11-11T10:21:58Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794397859211",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-ICMP",
+      "threat_score": 0.999690055847168,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T11:50:59Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794397859227",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-UDP",
+      "threat_score": 0.9999376535415649,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T11:50:59Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794397859232",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DoS-TCP",
+      "threat_score": 0.9994470477104187,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T11:50:59Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794399269828",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636642821546,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T12:14:29Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794399269853",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636642821546,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T12:14:29Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794399269867",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+      "threat_score": 0.8719324026818174,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T12:14:29Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794401347566",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636642821546,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T12:49:07Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794401347588",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636642821546,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T12:49:07Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794401347600",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+      "threat_score": 0.8719324026818174,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T12:49:07Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_01_1794401360643",
+      "device_id": "Smartwatch_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DoS-TCP",
+      "threat_score": 0.9995597553623755,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T12:49:20Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_01_1794401369938",
+      "device_id": "Smartwatch_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DoS-TCP",
+      "threat_score": 0.9995597553623755,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T12:49:29Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794409452571",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636642821546,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T15:04:12Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794409452594",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636642821546,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T15:04:12Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794409452606",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+      "threat_score": 0.8719324026818174,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T15:04:12Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794410518162",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:MQTT-Malformed_Data",
+      "threat_score": 0.9989321827888489,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T15:21:58Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794410518174",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9999854564666748,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T15:21:58Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794410518179",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+      "threat_score": 0.994132936000824,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T15:21:58Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794410661629",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DoS-ICMP",
+      "threat_score": 0.9999622106552124,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T15:24:21Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794410661644",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-ICMP",
+      "threat_score": 0.9999752044677734,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T15:24:21Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794410661649",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9985777139663696,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T15:24:21Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794410701588",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9984532594680786,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T15:25:01Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794411800634",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995597546443741,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T15:43:20Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794412883725",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995597546443741,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T16:01:23Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794412915724",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636568286217,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T16:01:55Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794412915747",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636568286217,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T16:01:55Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794412915761",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+      "threat_score": 0.8719334891898052,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T16:01:55Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794413032862",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995597546443741,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T16:03:52Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794413044969",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636568323474,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T16:04:04Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794413044993",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636568323474,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T16:04:04Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794413045007",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+      "threat_score": 0.8719334958671785,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T16:04:05Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794413081157",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995597546443741,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T16:04:41Z"
+    },
+    {
+      "event_id": "EVT_Smartwatch_Wearable_1794413088153",
+      "device_id": "Smartwatch_Wearable",
+      "event_type": "CONFIRMED_MALICIOUS_COMMUNICATION:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636568323474,
+      "severity": "CRITICAL",
+      "action_taken": "RECOMMEND_DEVICE_ISOLATION",
+      "timestamp": "2026-11-11T16:04:48Z"
+    },
+    {
+      "event_id": "EVT_DEV_01_1794413088177",
+      "device_id": "DEV_01",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:TCP_IP-DDoS-TCP",
+      "threat_score": 0.9995636568323474,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T16:04:48Z"
+    },
+    {
+      "event_id": "EVT_DEV_02_1794413088192",
+      "device_id": "DEV_02",
+      "event_type": "UNAUTHORIZED_DEVICE_ACCESS:Benign",
+      "threat_score": 0.8719334910976262,
+      "severity": "CRITICAL",
+      "action_taken": "CHALLENGE_AUTHENTICATION",
+      "timestamp": "2026-11-11T16:04:48Z"
     }
   ],
   "access_control": {}

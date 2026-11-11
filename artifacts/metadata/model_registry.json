@@ -527,19 +527,19 @@
       "model_version": "2.0.0",
       "preprocessing_version": "2.1.0",
       "seed": 42,
-      "accuracy": 0.9381,
-      "precision": 0.9966,
-      "recall": 0.9378,
-      "macro_f1": 0.7929,
-      "weighted_f1": 0.9478,
-      "roc_auc": 0.9858,
-      "pr_auc": 0.9992,
-      "fpr": 0.0562,
-      "fnr": 0.0622,
-      "threshold": 0.7915,
-      "mean_latency_ms": 3.591,
+      "accuracy": 0.9069,
+      "precision": 0.9994,
+      "recall": 0.9023,
+      "macro_f1": 0.7375,
+      "weighted_f1": 0.9263,
+      "roc_auc": 0.9882,
+      "pr_auc": 0.9993,
+      "fpr": 0.0096,
+      "fnr": 0.0977,
+      "threshold": 0.7549,
+      "mean_latency_ms": 3.923,
       "checkpoint_path": "artifacts/cyber_models/ciciomt2024/ciciomt2024_full_best.pt",
-      "checkpoint_checksum": "8341a63f6cedd23c"
+      "checkpoint_checksum": "0bfa5f835fc4369f"
     },
     {
       "model_name": "DQH_BAN_Quantum_4q_l2_ring",
@@ -960,5 +960,5 @@
       "checkpoint_checksum": "88167b35b128ed40"
     }
   ],
-  "updated_at": "2026-11-11T18:18:54.957154"
+  "updated_at": "2026-11-11T21:33:45.264163"
 }

@@ -158,7 +158,11 @@ class DQHBANCyberModel(nn.Module):
 
     def forward(self, x, return_latent=False):
         x_flat = self._align_flat_features(x)
-        coord_latent = self.coord_encoder(x_flat)
+        has_coord = getattr(self, "has_coord_in_ckpt", True)
+        if has_coord:
+            coord_latent = self.coord_encoder(x_flat)
+        else:
+            coord_latent = 0.0
 
         if x.dim() == 2:
             x_in = x_flat.unsqueeze(1)
@@ -168,7 +172,7 @@ class DQHBANCyberModel(nn.Module):
             x_in = x_flat.unsqueeze(1)
 
         cnn_out = self.cnn(x_in)
-        if cnn_out.size(-1) == self.in_features:
+        if cnn_out.size(-1) == self.in_features and has_coord:
             cnn_out = cnn_out + self.pos_emb
 
         if self.mode == "1d_cnn":
@@ -219,3 +223,16 @@ class DQHBANCyberModel(nn.Module):
         """Extracts the learned latent embedding vector (shape: batch_size x latent_dim)."""
         _, _, _, latent = self.forward(x, return_latent=True)
         return latent
+
+    def load_state_dict(self, state_dict, strict=False):
+        """
+        Loads state dict flexibly supporting checkpoints with or without
+        coordinate feature gating, SE modules, and LayerNorm blocks.
+        """
+        own_state = self.state_dict()
+        filtered_sd = {}
+        for k, v in state_dict.items():
+            if k in own_state and own_state[k].shape == v.shape:
+                filtered_sd[k] = v
+        self.has_coord_in_ckpt = any("coord_encoder" in k for k in state_dict.keys())
+        return super().load_state_dict(filtered_sd, strict=False)

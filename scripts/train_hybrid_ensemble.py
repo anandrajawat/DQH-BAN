@@ -108,7 +108,10 @@ def train_and_evaluate_dataset(
         in_features=num_features,
         num_classes=num_classes,
         include_dl=False,
-        random_state=42
+        random_state=42,
+        xgb_params=xgb_best_params,
+        lgb_params=lgb_best_params,
+        rf_params=rf_best_params
     )
     ens_classical.fit_oof(
         X_train, y_train_bin, y_train_mul,
@@ -159,7 +162,10 @@ def train_and_evaluate_dataset(
         num_classes=num_classes,
         include_dl=True,
         dl_mode="classical_matched",
-        random_state=42
+        random_state=42,
+        xgb_params=xgb_best_params,
+        lgb_params=lgb_best_params,
+        rf_params=rf_best_params
     )
     ens_noquantum.fit_oof(
         X_train, y_train_bin, y_train_mul,
@@ -217,7 +223,10 @@ def train_and_evaluate_dataset(
         entanglement="ring",
         include_dl=True,
         dl_mode="full",
-        random_state=42
+        random_state=42,
+        xgb_params=xgb_best_params,
+        lgb_params=lgb_best_params,
+        rf_params=rf_best_params
     )
     ens_hybrid_quantum.fit_oof(
         X_train, y_train_bin, y_train_mul,

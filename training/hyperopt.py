@@ -34,6 +34,7 @@ def tune_xgboost(X_train, y_train, X_val, y_val, spw=1.0, n_trials=10, timeout=1
             "reg_alpha": trial.suggest_float("reg_alpha", 1e-3, 5.0, log=True),
             "reg_lambda": trial.suggest_float("reg_lambda", 1e-3, 5.0, log=True),
             "scale_pos_weight": spw,
+            "objective": "binary:logistic",
             "n_jobs": 1,
             "random_state": seed,
             "eval_metric": "logloss"
@@ -45,7 +46,9 @@ def tune_xgboost(X_train, y_train, X_val, y_val, spw=1.0, n_trials=10, timeout=1
 
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler(seed=seed))
     study.optimize(objective, n_trials=n_trials, timeout=timeout)
-    return study.best_params
+    best_params = study.best_params.copy()
+    best_params["scale_pos_weight"] = spw
+    return best_params
 
 def tune_lightgbm(X_train, y_train, X_val, y_val, spw=1.0, n_trials=10, timeout=120, seed=42):
     """Tunes LightGBM hyperparameters using Optuna on validation data."""
@@ -60,6 +63,7 @@ def tune_lightgbm(X_train, y_train, X_val, y_val, spw=1.0, n_trials=10, timeout=
             "reg_alpha": trial.suggest_float("reg_alpha", 1e-3, 5.0, log=True),
             "reg_lambda": trial.suggest_float("reg_lambda", 1e-3, 5.0, log=True),
             "scale_pos_weight": spw,
+            "objective": "binary",
             "n_jobs": 1,
             "random_state": seed,
             "verbose": -1
@@ -71,7 +75,9 @@ def tune_lightgbm(X_train, y_train, X_val, y_val, spw=1.0, n_trials=10, timeout=
 
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler(seed=seed))
     study.optimize(objective, n_trials=n_trials, timeout=timeout)
-    return study.best_params
+    best_params = study.best_params.copy()
+    best_params["scale_pos_weight"] = spw
+    return best_params
 
 def tune_random_forest(X_train, y_train, X_val, y_val, n_trials=8, timeout=90, seed=42):
     """Tunes Random Forest hyperparameters using Optuna on validation data."""

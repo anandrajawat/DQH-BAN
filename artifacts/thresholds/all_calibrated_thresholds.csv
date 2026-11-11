@@ -1,5 +1,5 @@
 dataset,optimal_threshold,val_fpr,val_fnr,ece,config_path
-CICIoMT2024,0.4585,0.0091,0.0031,0.233,/Volumes/New Storage/Body Area Network/artifacts/thresholds/ciciomt2024_threshold.json
+CICIoMT2024,0.7549,0.004,0.0493,0.0243,/Volumes/New Storage/Body Area Network/artifacts/thresholds/ciciomt2024_threshold.json
 WUSTL-EHMS-2020,0.4754,0.0093,0.0,0.2305,/Volumes/New Storage/Body Area Network/artifacts/thresholds/wustl_ehms_threshold.json
 WUSTL-HDRL-2024,0.5001,0.006,0.0044,0.2314,/Volumes/New Storage/Body Area Network/artifacts/thresholds/wustl_hdrl_threshold.json
 CIC-IoT-2023,0.4811,0.0085,0.0045,0.2328,/Volumes/New Storage/Body Area Network/artifacts/thresholds/cic_iot2023_threshold.json

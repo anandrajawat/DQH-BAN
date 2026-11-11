@@ -34,6 +34,7 @@ def optimize_decision_threshold(val_probs, val_labels, target_max_fpr=0.01):
 
     strict_indices = np.where((fpr <= target_max_fpr) & (fnr <= 0.015))[0]
     near_strict_indices = np.where((fpr <= 0.02) & (fnr <= 0.02))[0]
+    bounded_fpr_indices = np.where(fpr <= max(target_max_fpr, 0.05))[0]
 
     if len(strict_indices) > 0:
         best_sub = int(np.argmin(fpr[strict_indices] + fnr[strict_indices]))
@@ -49,6 +50,13 @@ def optimize_decision_threshold(val_probs, val_labels, target_max_fpr=0.01):
         opt_fpr = float(fpr[best_idx])
         opt_fnr = float(fnr[best_idx])
         criterion = "Min (FPR+FNR) with FPR <= 2.0% and FNR <= 2.0%"
+    elif len(bounded_fpr_indices) > 0:
+        best_sub = int(np.argmin(fnr[bounded_fpr_indices] + 0.5 * fpr[bounded_fpr_indices]))
+        best_idx = int(bounded_fpr_indices[best_sub])
+        optimal_threshold = float(thresholds[best_idx])
+        opt_fpr = float(fpr[best_idx])
+        opt_fnr = float(fnr[best_idx])
+        criterion = f"Min FNR with bounded FPR <= {max(target_max_fpr, 0.05)*100:.1f}%"
     else:
         # Evaluate candidate thresholds on validation set to maximize Macro-F1 - 0.15*(FPR + FNR)
         n_pos = float(np.sum(val_labels == 1))
